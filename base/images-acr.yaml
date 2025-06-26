@@ -1,0 +1,9 @@
+registry: registry.cn-beijing.aliyuncs.com/opshub/registry
+tonistiigi/binfmt: registry.cn-beijing.aliyuncs.com/opshub/tonistiigi-binfmt
+bitnami/redis: registry.cn-beijing.aliyuncs.com/opshub/bitnami-redis
+bitnami/mysql: registry.cn-beijing.aliyuncs.com/opshub/bitnami-mysql
+busybox: registry.cn-beijing.aliyuncs.com/opshub/busybox
+golang: registry.cn-beijing.aliyuncs.com/opshub/golang
+nginx: registry.cn-beijing.aliyuncs.com/opshub/nginx
+debian: registry.cn-beijing.aliyuncs.com/opshub/debian
+ubuntu: registry.cn-beijing.aliyuncs.com/opshub/ubuntu

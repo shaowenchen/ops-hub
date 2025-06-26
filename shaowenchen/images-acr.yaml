@@ -11,4 +11,10 @@ shaowenchen/demo-fio: registry.cn-beijing.aliyuncs.com/opshub/shaowenchen-demo-f
 shaowenchen/demo-iperf3: registry.cn-beijing.aliyuncs.com/opshub/shaowenchen-demo-iperf3
 shaowenchen/git: registry.cn-beijing.aliyuncs.com/opshub/shaowenchen-git
 shaowenchen/demo-vllm-qwen: registry.cn-beijing.aliyuncs.com/opshub/shaowenchen-demo-vllm-qwen
-shaowenchen/demo-3fs: registry.cn-beijing.aliyuncs.com/opshub/shaowenchen-demo-3fs
+shaowenchen/runtime-python: registry.cn-beijing.aliyuncs.com/opshub/shaowenchen-runtime-python
+shaowenchen/runtime-ubuntu: registry.cn-beijing.aliyuncs.com/opshub/shaowenchen-runtime-ubuntu
+shaowenchen/runtime-nginx: registry.cn-beijing.aliyuncs.com/opshub/shaowenchen-runtime-nginx
+shaowenchen/runtime-node: registry.cn-beijing.aliyuncs.com/opshub/shaowenchen-runtime-node
+shaowenchen/runtime-openjdk: registry.cn-beijing.aliyuncs.com/opshub/shaowenchen-runtime-openjdk
+shaowenchen/runtime-openresty: registry.cn-beijing.aliyuncs.com/opshub/shaowenchen-runtime-openresty
+shaowenchen/runtime-pypy: registry.cn-beijing.aliyuncs.com/opshub/shaowenchen-runtime-pypy
