@@ -1,4 +1,4 @@
-name: Timer-Images-ACR
+name: TimerImagesACR
 
 on:
   push:
