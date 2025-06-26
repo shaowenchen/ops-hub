@@ -1,0 +1,5 @@
+ascendai/pytorch: registry.cn-beijing.aliyuncs.com/opshub/ascendai-pytorch
+ascendai/python: registry.cn-beijing.aliyuncs.com/opshub/ascendai-python
+ascendai/mindspore: registry.cn-beijing.aliyuncs.com/opshub/ascendai-mindspore
+quay.io/ascend/vllm-ascend: registry.cn-beijing.aliyuncs.com/opshub/quay-io-ascend-vllm-ascend
+ascendai/cann: registry.cn-beijing.aliyuncs.com/opshub/ascendai-cann

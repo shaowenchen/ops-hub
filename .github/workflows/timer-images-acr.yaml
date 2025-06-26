@@ -1,0 +1,36 @@
+name: Timer-Images-ACR
+
+on:
+  push:
+    branches:
+      - master
+  schedule:
+    - cron: "0 18,6 * * *"
+  workflow_dispatch:
+    inputs:
+      directory:
+        description: 'Directory to search for images-acr.yaml files (default: all directories)'
+        required: false
+        default: './'
+jobs:
+  build:
+    name: Image Sync
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+      - name: Login to ACR
+        uses: docker/login-action@v3
+        with:
+          registry: https://registry.cn-beijing.aliyuncs.com
+          username: "${{ secrets.ACR_USERNAME }}"
+          password: "${{ secrets.ACR_PASSWORD }}"
+      - name: Working
+        run: |
+          SEARCH_DIR="${{ github.event.inputs.directory || './' }}"
+          echo "Searching in directory: $SEARCH_DIR"
+
+          find "$SEARCH_DIR" -type f -name "images-acr.yaml" | shuf | while read -r file; do
+            echo "Processing file: $file"
+            bash ./.github/workflows/copy.sh "$file"
+          done
