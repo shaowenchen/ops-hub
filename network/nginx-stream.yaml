@@ -32,7 +32,7 @@ spec:
         nginx-stream: "true"
       containers:
         - name: nginx-stream
-          image: registry.cn-beijing.aliyuncs.com/shaowenchen/demo-nginx-stream:latest
+          image: registry.cn-beijing.aliyuncs.com/shaowenchen/demo:nginx-stream
           ports:
             - containerPort: 443
           volumeMounts:

@@ -6,15 +6,11 @@ on:
       src:
         description: ""
         required: true
-        default: "quay.io/argoproj/argo-events"
+        default: "quay.io/argoproj/argo-events:v1.8.0"
       dest:
         description: ""
         required: true
-        default: "registry.cn-beijing.aliyuncs.com/opshub/argoproj-argo-events"
-      tag:
-        description: ""
-        required: true
-        default: "v1.8.0"
+        default: "registry.cn-beijing.aliyuncs.com/opshub/argoproj-argo-events:v1.8.0"
 jobs:
   build:
     name: Image Sync
@@ -35,4 +31,4 @@ jobs:
           password: "${{ secrets.ACR_PASSWORD }}"
       - name: Working
         run: |
-          docker run --rm -v ~/.docker/config.json:/auth.json quay.io/skopeo/stable:v1.13.0 copy docker://${{ inputs.src }}:${{ inputs.tag }} docker://${{ inputs.dest }}:${{ inputs.tag }} --dest-authfile /auth.json --insecure-policy --src-tls-verify=false --dest-tls-verify=false --retry-times 1 --all
+          docker run --rm -v ~/.docker/config.json:/auth.json quay.io/skopeo/stable:v1.13.0 copy docker://${{ inputs.src }} docker://${{ inputs.dest }} --dest-authfile /auth.json --insecure-policy --src-tls-verify=false --dest-tls-verify=false --retry-times 1 --all
