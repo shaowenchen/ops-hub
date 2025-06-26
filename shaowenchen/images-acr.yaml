@@ -1,16 +1,6 @@
 shaowenchen/ops-cli: registry.cn-beijing.aliyuncs.com/opshub/shaowenchen-ops-cli
 shaowenchen/ops-server: registry.cn-beijing.aliyuncs.com/opshub/shaowenchen-ops-server
 shaowenchen/ops-controller-manager: registry.cn-beijing.aliyuncs.com/opshub/shaowenchen-ops-controller-manager
-shaowenchen/xpu-benchmark: registry.cn-beijing.aliyuncs.com/opshub/shaowenchen-xpu-benchmark
-shaowenchen/demo-3fsbuilder: registry.cn-beijing.aliyuncs.com/opshub/shaowenchen-demo-3fsbuilder
-shaowenchen/demo-3fs: registry.cn-beijing.aliyuncs.com/opshub/shaowenchen-demo-3fs
-shaowenchen/demo-ubuntu: registry.cn-beijing.aliyuncs.com/opshub/shaowenchen-demo-ubuntu
-shaowenchen/demo-sshd: registry.cn-beijing.aliyuncs.com/opshub/shaowenchen-demo-sshd
-shaowenchen/demo-alpine: registry.cn-beijing.aliyuncs.com/opshub/shaowenchen-demo-alpine
-shaowenchen/demo-fio: registry.cn-beijing.aliyuncs.com/opshub/shaowenchen-demo-fio
-shaowenchen/demo-iperf3: registry.cn-beijing.aliyuncs.com/opshub/shaowenchen-demo-iperf3
-shaowenchen/git: registry.cn-beijing.aliyuncs.com/opshub/shaowenchen-git
-shaowenchen/demo-vllm-qwen: registry.cn-beijing.aliyuncs.com/opshub/shaowenchen-demo-vllm-qwen
 shaowenchen/runtime-python: registry.cn-beijing.aliyuncs.com/opshub/shaowenchen-runtime-python
 shaowenchen/runtime-ubuntu: registry.cn-beijing.aliyuncs.com/opshub/shaowenchen-runtime-ubuntu
 shaowenchen/runtime-nginx: registry.cn-beijing.aliyuncs.com/opshub/shaowenchen-runtime-nginx
@@ -18,3 +8,5 @@ shaowenchen/runtime-node: registry.cn-beijing.aliyuncs.com/opshub/shaowenchen-ru
 shaowenchen/runtime-openjdk: registry.cn-beijing.aliyuncs.com/opshub/shaowenchen-runtime-openjdk
 shaowenchen/runtime-openresty: registry.cn-beijing.aliyuncs.com/opshub/shaowenchen-runtime-openresty
 shaowenchen/runtime-pypy: registry.cn-beijing.aliyuncs.com/opshub/shaowenchen-runtime-pypy
+shaowenchen/demo: registry.cn-beijing.aliyuncs.com/opshub/shaowenchen-demo
+shaowenchen/xpu-benchmark: registry.cn-beijing.aliyuncs.com/opshub/shaowenchen-xpu-benchmark
