@@ -39,7 +39,8 @@ if [ "$VERSION" = "24.04" ]; then
   sources_file="/etc/apt/sources.list.d/ubuntu.sources"
 
   if [ -e "$sources_file" ]; then
-    mv "$sources_file" "$sources_file.backup.$(date +"%Y%m%d%H%M%S")"
+    mkdir -p /etc/apt/sources.list.d-backup
+    mv "$sources_file" "/etc/apt/sources.list.d-backup/ubuntu.sources.$(date +"%Y%m%d%H%M%S")"
     echo "File not found: $sources_file"
   fi
 else
