@@ -1268,7 +1268,7 @@ spec:
       - args:
         - server
         env: []
-        image: hubimage/argoproj-argocli:v3.5.4
+        image: quay.io/argoproj/argocli:v3.5.4
         name: argo-server
         ports:
         - containerPort: 2746
@@ -1318,14 +1318,14 @@ spec:
         command:
         - workflow-controller
         - --executor-image
-        - hubimage/argoproj-argoexec:v3.5.4
+        - quay.io/argoproj/argoexec:v3.5.4
         env:
         - name: LEADER_ELECTION_IDENTITY
           valueFrom:
             fieldRef:
               apiVersion: v1
               fieldPath: metadata.name
-        image: hubimage/argoproj-workflow-controller:v3.5.4
+        image: quay.io/argoproj/workflow-controller:v3.5.4
         livenessProbe:
           failureThreshold: 3
           httpGet:
