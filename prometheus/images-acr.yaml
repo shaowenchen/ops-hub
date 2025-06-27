@@ -12,7 +12,7 @@ quay.io/prometheus/alertmanager: registry.cn-beijing.aliyuncs.com/opshub/quay-io
 quay.io/prometheus/prometheus: registry.cn-beijing.aliyuncs.com/opshub/quay-io-prometheus-prometheus
 jimmidyson/configmap-reload: registry.cn-beijing.aliyuncs.com/opshub/jimmidyson-configmap-reload
 # nats
-nats-streaming: registry.cn-beijing.aliyuncs.com/opshub/nats-streaming-nats-streaming
+nats-streaming: registry.cn-beijing.aliyuncs.com/opshub/nats-streaming
 nats: registry.cn-beijing.aliyuncs.com/opshub/nats
 natsio/nats-box: registry.cn-beijing.aliyuncs.com/opshub/natsio-nats-box
 natsio/prometheus-nats-exporter: registry.cn-beijing.aliyuncs.com/opshub/natsio-prometheus-nats-exporter
