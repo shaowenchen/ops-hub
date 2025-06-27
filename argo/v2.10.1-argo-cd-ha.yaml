@@ -22389,7 +22389,7 @@ spec:
               key: applicationsetcontroller.enable.scm.providers
               name: argocd-cmd-params-cm
               optional: true
-        image: hubimage/argoproj-argocd:v2.10.1
+        image: argoproj/argocd:v2.10.1
         imagePullPolicy: Always
         name: argocd-applicationset-controller
         ports:
@@ -22483,7 +22483,7 @@ spec:
               key: dexserver.disable.tls
               name: argocd-cmd-params-cm
               optional: true
-        image: hubimage/dexidp-dex:v2.37.0
+        image: ghcr.io/dexidp/dex:v2.37.0
         imagePullPolicy: Always
         name: dex
         ports:

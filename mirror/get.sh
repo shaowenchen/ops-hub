@@ -8,15 +8,15 @@ proxy=${PROXY:-$default_proxy}
 case "$os" in
 "CentOS Linux")
     echo "Detected CentOS"
-    curl -sfL "$proxy"https://raw.githubusercontent.com/shaowenchen/hubimage/main/mirror/centos/get.sh | sh -
+    curl -sfL "$proxy"https://raw.githubusercontent.com/shaowenchen/ops-hub/master/mirror/centos/get.sh | sh -
     ;;
 "Debian GNU/Linux")
     echo "Detected Debian"
-    curl -sfL "$proxy"https://raw.githubusercontent.com/shaowenchen/hubimage/main/mirror/debian/get.sh | sh -
+    curl -sfL "$proxy"https://raw.githubusercontent.com/shaowenchen/ops-hub/master/mirror/debian/get.sh | sh -
     ;;
 "Ubuntu")
     echo "Detected Ubuntu"
-    curl -sfL "$proxy"https://raw.githubusercontent.com/shaowenchen/hubimage/main/mirror/ubuntu/get.sh | sh -
+    curl -sfL "$proxy"https://raw.githubusercontent.com/shaowenchen/ops-hub/master/mirror/ubuntu/get.sh | sh -
     ;;
 "Alpine Linux")
     echo "Detected Alpine"
