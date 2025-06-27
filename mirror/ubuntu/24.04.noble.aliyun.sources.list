@@ -1,13 +1,5 @@
 Types: deb
-URIs: https://mirrors.aliyun.com/ubuntu-ports/
-Suites: noble noble-updates noble-backports
-Components: main universe restricted multiverse
-Signed-By: /usr/share/keyrings/ubuntu-archive-keyring.gpg
-
-## Ubuntu security updates. Aside from URIs and Suites,
-## this should mirror your choices in the previous section.
-Types: deb
-URIs: https://mirrors.aliyun.com/ubuntu-ports/
-Suites: noble-security
-Components: main universe restricted multiverse
+URIs: http://mirrors.aliyun.com/ubuntu/
+Suites: noble noble-updates noble-security
+Components: main restricted universe multiverse
 Signed-By: /usr/share/keyrings/ubuntu-archive-keyring.gpg
