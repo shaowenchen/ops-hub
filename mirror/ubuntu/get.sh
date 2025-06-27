@@ -6,7 +6,7 @@ fi
 
 default_proxy="https://ghproxy.chenshaowen.com/"
 proxy=${PROXY:-$default_proxy}
-repo_url="$proxy""https://raw.githubusercontent.com/shaowenchen/hubimage/main/mirror/ubuntu/"
+repo_url="$proxy""https://raw.githubusercontent.com/shaowenchen/ops-hub/master/mirror/ubuntu/"
 
 case $VERSION in
 14.04)
@@ -39,8 +39,7 @@ if [ "$VERSION" = "24.04" ]; then
   sources_file="/etc/apt/sources.list.d/ubuntu.sources"
 
   if [ -e "$sources_file" ]; then
-    mv "$sources_file" "$sources_file../ubuntu.sources.backup.$(date +"%Y%m%d%H%M%S")"
-  else
+    mv "$sources_file" "$sources_file.backup.$(date +"%Y%m%d%H%M%S")"
     echo "File not found: $sources_file"
   fi
 else
