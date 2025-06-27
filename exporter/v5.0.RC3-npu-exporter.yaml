@@ -27,7 +27,7 @@ spec:
             - /bin/bash
             - -c
             - --
-          image: npu-exporter:v5.0.RC3
+          image: swr.cn-south-1.myhuaweicloud.com/ascendhub/npu-exporter:v5.0.RC3.2
           imagePullPolicy: IfNotPresent
           name: npu-exporter
           ports:

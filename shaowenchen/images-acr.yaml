@@ -8,3 +8,4 @@ shaowenchen/runtime-pypy: registry.cn-beijing.aliyuncs.com/opshub/shaowenchen-ru
 shaowenchen/demo: registry.cn-beijing.aliyuncs.com/opshub/shaowenchen-demo
 shaowenchen/xpu-benchmark: registry.cn-beijing.aliyuncs.com/opshub/shaowenchen-xpu-benchmark
 shaowenchen/python38-cann: registry.cn-beijing.aliyuncs.com/opshub/shaowenchen-python38-cann
+shaowenchen/hccl-test: registry.cn-beijing.aliyuncs.com/opshub/shaowenchen-hccl-test
