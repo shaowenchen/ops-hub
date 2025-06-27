@@ -1,6 +1,3 @@
-shaowenchen/ops-cli: registry.cn-beijing.aliyuncs.com/opshub/shaowenchen-ops-cli
-shaowenchen/ops-server: registry.cn-beijing.aliyuncs.com/opshub/shaowenchen-ops-server
-shaowenchen/ops-controller-manager: registry.cn-beijing.aliyuncs.com/opshub/shaowenchen-ops-controller-manager
 shaowenchen/runtime-python: registry.cn-beijing.aliyuncs.com/opshub/shaowenchen-runtime-python
 shaowenchen/runtime-ubuntu: registry.cn-beijing.aliyuncs.com/opshub/shaowenchen-runtime-ubuntu
 shaowenchen/runtime-nginx: registry.cn-beijing.aliyuncs.com/opshub/shaowenchen-runtime-nginx
