@@ -24,18 +24,36 @@ case $VERSION in
 22.04)
   repo_url=$repo_url"22.04.jammy.aliyun.sources.list"
   ;;
+24.04)
+  repo_url=$repo_url"24.04.noble.aliyun.sources.list"
+  ;;
 *)
   echo "Unsupported version"
   exit 1
   ;;
 esac
 
-if [ -e "/etc/apt/sources.list" ]; then
-  mv /etc/apt/sources.list /etc/apt/sources.list.backup.$(date +"%Y%m%d%H%M%S")
+# Handle different sources file locations for different Ubuntu versions
+if [ "$VERSION" = "24.04" ]; then
+  # Ubuntu 24.04 uses /etc/apt/sources.list.d/ubuntu.sources
+  sources_file="/etc/apt/sources.list.d/ubuntu.sources"
+
+  if [ -e "$sources_file" ]; then
+    mv "$sources_file" "$sources_file.backup.$(date +"%Y%m%d%H%M%S")"
+  else
+    echo "File not found: $sources_file"
+  fi
 else
-  echo "File not found: /etc/apt/sources.list"
+  # Older versions use /etc/apt/sources.list
+  sources_file="/etc/apt/sources.list"
+
+  if [ -e "$sources_file" ]; then
+    mv "$sources_file" "$sources_file.backup.$(date +"%Y%m%d%H%M%S")"
+  else
+    echo "File not found: $sources_file"
+  fi
 fi
 
-curl -sfL $repo_url -o /etc/apt/sources.list
+curl -sfL $repo_url -o "$sources_file"
 
 apt update

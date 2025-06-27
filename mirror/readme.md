@@ -46,7 +46,7 @@ PROXY="https://ghproxy.chenshaowen.com/"
 curl -sfL "$PROXY"https://raw.githubusercontent.com/shaowenchen/hubimage/main/mirror/ubuntu/get.sh | VERSION=22.04 sh -
 ```
 
-version: 14.04, 16.04, 18.04, 20.04, 22.04
+version: 14.04, 16.04, 18.04, 20.04, 22.04, 24.04
 
 Or let the script detect the version:
 
