@@ -38,7 +38,7 @@ for image in ${ALL_IMAGES}; do
         fi
 
         tag=$(echo $tag | sed 's/"//g')
-        if [[ ${#tag} -gt 30 || ${tag} == *"--"* || ${tag} =~ ([0-9]{8}) || ${tag} =~ -[a-f0-9]{7,}- || ${tag} =~ -SNAPSHOT$ || ${tag} =~ beta[0-9]+ || ${tag} == *"windows"* || ${tag} == *"0.0.0"* || ${tag} == *"dev"* || ${tag} == sha256* || ${tag} == sha-* || ${tag} == *.sig || ${tag} == *post1 || ${tag} == *post2 || ${tag} =~ [0-9]{4}-[0-9]{2}-[0-9]{2} ]]; then
+        if [[ ${#tag} -gt 30 || ${tag} == *"--"* || ${tag} =~ ([0-9]{8}) || ${tag} =~ -[a-f0-9]{7,}- || ${tag} =~ -SNAPSHOT$ || ${tag} =~ beta[0-9]+ || ${tag} == *"windows"* || ${tag} == *"0.0.0"* || ${tag} == *"dev"* || ${tag} == sha256* || ${tag} == sha-* || ${tag} == *.sig || ${tag} == *post1 || ${tag} == *post2 || ${tag} =~ [0-9]{4}-[0-9]{2}-[0-9]{2} || ${tag} =~ .*-[a-z0-9]{12,}.* || ${tag} =~ .*-[a-z0-9]{7,}-.* ]]; then
             # echo "Skipping special tag ${imagearr[0]}:${tag}"
             continue
         fi
