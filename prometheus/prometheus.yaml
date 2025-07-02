@@ -6,6 +6,8 @@ metadata:
   name: ops
   namespace: monitoring
 spec:
+  storage:
+    emptyDir: {}
   podMetadata:
     labels:
       prometheus-instance: ops
