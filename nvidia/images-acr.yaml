@@ -1,3 +1,4 @@
+lmsysorg/sglang: registry.cn-beijing.aliyuncs.com/opshub/lmsysorg-sglang
 nvcr.io/nvidia/tensorrt-llm/release: registry.cn-beijing.aliyuncs.com/opshub/nvcr-io-nvidia-tensorrt-llm-release
 nvcr.io/nvidia/tritonserver: registry.cn-beijing.aliyuncs.com/opshub/nvcr-io-nvidia-tritonserver
 vllm/vllm-openai: registry.cn-beijing.aliyuncs.com/opshub/vllm-vllm-openai
