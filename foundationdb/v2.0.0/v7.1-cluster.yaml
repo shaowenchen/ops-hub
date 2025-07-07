@@ -42,6 +42,9 @@ spec:
               requests:
                 cpu: 100m
                 memory: 128Mi
+              limits:
+                cpu: 4
+                memory: 8Gi
             securityContext:
               runAsUser: 0
           - name: foundationdb-kubernetes-sidecar
@@ -49,6 +52,9 @@ spec:
               requests:
                 cpu: 100m
                 memory: 128Mi
+              limits:
+                cpu: 4
+                memory: 8Gi
             securityContext:
               runAsUser: 0
           initContainers:
@@ -57,6 +63,9 @@ spec:
               requests:
                 cpu: 100m
                 memory: 128Mi
+              limits:
+                cpu: 4
+                memory: 8Gi
             securityContext:
               runAsUser: 0
       volumeClaimTemplate:
