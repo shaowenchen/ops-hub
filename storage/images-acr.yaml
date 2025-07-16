@@ -1,3 +1,5 @@
+registry.cn-shanghai.aliyuncs.com/jindofs/jindo-fuse: registry.cn-beijing.aliyuncs.com/opshub/jindofs-jindo-fuse
+registry.cn-shanghai.aliyuncs.com/jindofs/smartdata: registry.cn-beijing.aliyuncs.com/opshub/jindofs-smartdata
 minio/minio: registry.cn-beijing.aliyuncs.com/opshub/minio-minio
 redis: registry.cn-beijing.aliyuncs.com/opshub/redis
 postgres: registry.cn-beijing.aliyuncs.com/opshub/postgres
