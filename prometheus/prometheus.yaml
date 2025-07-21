@@ -6,6 +6,8 @@ metadata:
   name: ops
   namespace: monitoring
 spec:
+  externalLabels:
+    cluster: default
   storage:
     emptyDir: {}
   podMetadata:
