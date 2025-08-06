@@ -1,0 +1,3 @@
+ghcr.io/kedacore/keda-metrics-apiserver: registry.cn-beijing.aliyuncs.com/opshub/ghcr-io-kedacore-keda-metrics-apiserver
+ghcr.io/kedacore/keda: registry.cn-beijing.aliyuncs.com/opshub/ghcr-io-kedacore-keda
+ghcr.io/kedacore/keda-admission-webhooks: registry.cn-beijing.aliyuncs.com/opshub/ghcr-io-kedacore-keda-admission-webhooks
