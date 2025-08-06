@@ -1,4 +1,5 @@
 openeuler/openeuler: registry.cn-beijing.aliyuncs.com/opshub/openeuler-openeuler
+swr.cn-south-1.myhuaweicloud.com/ascendhub/ascend-k8sdeviceplugin: registry.cn-beijing.aliyuncs.com/opshub/ascendhub-ascend-k8sdeviceplugin
 swr.cn-south-1.myhuaweicloud.com/ascendhub/hccl-controller: registry.cn-beijing.aliyuncs.com/opshub/ascendhub-hccl-controller
 swr.cn-south-1.myhuaweicloud.com/ascendhub/npu-exporter: registry.cn-beijing.aliyuncs.com/opshub/ascendhub-npu-exporter
 ascendai/pytorch: registry.cn-beijing.aliyuncs.com/opshub/ascendai-pytorch
