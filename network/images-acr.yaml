@@ -3,6 +3,7 @@ tekn0ir/nginx-stream: registry.cn-beijing.aliyuncs.com/opshub/tekn0ir-nginx-stre
 softonic/nginx-vts: registry.cn-beijing.aliyuncs.com/opshub/softonic-nginx-vts
 sophos/nginx-vts-exporter: registry.cn-beijing.aliyuncs.com/opshub/sophos-nginx-vts-exporter
 # calico
+calico/apiserver: registry.cn-beijing.aliyuncs.com/opshub/calico-apiserver
 calico/node: registry.cn-beijing.aliyuncs.com/opshub/calico-node
 calico/cni: registry.cn-beijing.aliyuncs.com/opshub/calico-cni
 calico/csi: registry.cn-beijing.aliyuncs.com/opshub/calico-csi
