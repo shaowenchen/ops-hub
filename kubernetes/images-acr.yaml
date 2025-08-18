@@ -1,3 +1,4 @@
+k8s.gcr.io/kubectl: registry.cn-beijing.aliyuncs.com/opshub/k8s-gcr-io-kubectl
 k8s.gcr.io/kube-apiserver: registry.cn-beijing.aliyuncs.com/opshub/k8s-gcr-io-kube-apiserver
 k8s.gcr.io/kube-controller-manager: registry.cn-beijing.aliyuncs.com/opshub/k8s-gcr-io-kube-controller-manager
 k8s.gcr.io/kube-scheduler: registry.cn-beijing.aliyuncs.com/opshub/k8s-gcr-io-kube-scheduler
