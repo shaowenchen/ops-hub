@@ -1,3 +1,5 @@
+bitnami/kubectl: registry.cn-beijing.aliyuncs.com/opshub/bitnami-kubectl
+registry.k8s.io/kubectl: registry.cn-beijing.aliyuncs.com/opshub/registry-k8s-io-kubectl
 k8s.gcr.io/kubectl: registry.cn-beijing.aliyuncs.com/opshub/k8s-gcr-io-kubectl
 k8s.gcr.io/kube-apiserver: registry.cn-beijing.aliyuncs.com/opshub/k8s-gcr-io-kube-apiserver
 k8s.gcr.io/kube-controller-manager: registry.cn-beijing.aliyuncs.com/opshub/k8s-gcr-io-kube-controller-manager
