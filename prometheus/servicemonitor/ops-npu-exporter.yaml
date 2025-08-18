@@ -1,0 +1,25 @@
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  annotations:
+  labels:
+    tier: ops
+  name: npu-exporter
+  namespace: monitoring
+spec:
+  endpoints:
+  - interval: 20s
+    port: metric
+    relabelings:
+    - action: replace
+      sourceLabels:
+      - __meta_kubernetes_endpoint_node_name
+      targetLabel: node
+  namespaceSelector:
+    matchNames:
+    - npu-exporter
+  selector:
+    matchLabels:
+      app: npu-exporter
+  targetLabels:
+  - tier
