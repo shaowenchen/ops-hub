@@ -4,7 +4,7 @@ metadata:
   annotations:
   labels:
     tier: ops
-  name: npu-exporter
+  name: ops-npu-exporter
   namespace: monitoring
 spec:
   endpoints:
