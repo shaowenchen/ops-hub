@@ -3,7 +3,7 @@ kind: Service
 metadata:
   labels:
     app: ops-npu-exporter
-  name: npu-exporter
+  name: ops-npu-exporter
   namespace: kube-system
 spec:
   ports:
