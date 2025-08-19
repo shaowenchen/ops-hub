@@ -1,3 +1,20 @@
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: ops-npu-exporter
+  name: npu-exporter
+  namespace: kube-system
+spec:
+  ports:
+  - name: http
+    port: 8082
+    protocol: TCP
+    targetPort: 8082
+  selector:
+    app: npu-exporter
+  type: ClusterIP
+---
 apiVersion: monitoring.coreos.com/v1
 kind: ServiceMonitor
 metadata:
@@ -21,6 +38,6 @@ spec:
     - kube-system
   selector:
     matchLabels:
-      app: npu-exporter
+      app: ops-npu-exporter
   targetLabels:
   - tier
