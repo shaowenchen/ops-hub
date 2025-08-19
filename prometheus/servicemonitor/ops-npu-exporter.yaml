@@ -17,7 +17,8 @@ spec:
       targetLabel: node
   namespaceSelector:
     matchNames:
-    - npu-exporter
+    - monitoring
+    - kube-system
   selector:
     matchLabels:
       app: npu-exporter
