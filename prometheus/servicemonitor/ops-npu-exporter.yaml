@@ -8,7 +8,7 @@ metadata:
   namespace: monitoring
 spec:
   endpoints:
-  - interval: 20s
+  - interval: 15s
     port: metric
     relabelings:
     - action: replace
