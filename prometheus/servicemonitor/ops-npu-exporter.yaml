@@ -7,7 +7,7 @@ metadata:
   namespace: kube-system
 spec:
   ports:
-  - name: http
+  - name: metric
     port: 8082
     protocol: TCP
     targetPort: 8082
