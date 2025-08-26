@@ -1,20 +1,20 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: pushgateway
+  name: ops-pushgateway
   namespace: monitoring
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: pushgateway
+      app: ops-pushgateway
   template:
     metadata:
       labels:
-        app: pushgateway
+        app: ops-pushgateway
     spec:
       containers:
-      - name: pushgateway
+      - name: ops-pushgateway
         image: prom/pushgateway:latest
         ports:
         - containerPort: 9091
@@ -22,13 +22,14 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: pushgateway
+  name: ops-pushgateway
   namespace: monitoring
 spec:
   selector:
-    app: pushgateway
+    app: ops-pushgateway
   ports:
-  - protocol: TCP
+  - name: metric
+    protocol: TCP
     port: 9091
     targetPort: 9091
   type: ClusterIP
