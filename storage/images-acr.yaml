@@ -33,7 +33,6 @@ fluidcloudnative/jindoruntime-controller: registry.cn-beijing.aliyuncs.com/opshu
 fluidcloudnative/juicefsruntime-controller: registry.cn-beijing.aliyuncs.com/opshub/fluidcloudnative-juicefsruntime-controller
 fluidcloudnative/thinruntime-controller: registry.cn-beijing.aliyuncs.com/opshub/fluidcloudnative-thinruntime-controller
 fluidcloudnative/vineyardruntime-controller: registry.cn-beijing.aliyuncs.com/opshub/fluidcloudnative-vineyardruntime-controller
-fluidcloudnative/csi-node-driver-registrar: registry.cn-beijing.aliyuncs.com/opshub/fluidcloudnative-csi-node-driver-registrar
 fluidcloudnative/fluid-csi: registry.cn-beijing.aliyuncs.com/opshub/fluidcloudnative-fluid-csi
 
 # velero
