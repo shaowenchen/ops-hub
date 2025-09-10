@@ -8,9 +8,8 @@ metadata:
 spec:
   selector:
     component: etcd
-    tier: control-plane
   ports:
-    - name: metric
+    - name: metrics
       port: 2381
       targetPort: 2381
       protocol: TCP
@@ -30,7 +29,7 @@ spec:
     matchLabels:
       app: etcd
   endpoints:
-    - port: metric
+    - port: metrics
       path: /metrics
       interval: 15s
       scheme: http
