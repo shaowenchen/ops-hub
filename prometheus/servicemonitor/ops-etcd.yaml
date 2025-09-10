@@ -1,3 +1,23 @@
+# IPS=$(kubectl get nodes -l node-role.kubernetes.io/control-plane -o jsonpath='{.items[*].status.addresses[?(@.type=="InternalIP")].address}' 2>/dev/null || 
+#      kubectl get nodes -l node-role.kubernetes.io/master -o jsonpath='{.items[*].status.addresses[?(@.type=="InternalIP")].address}')
+
+# [ -z "$IPS" ] && { echo "No master IPs found"; exit 1; }
+
+# kubectl apply -f - << EOF
+# apiVersion: v1
+# kind: Endpoints
+# metadata:
+#   name: ops-etcd
+#   namespace: kube-system
+# subsets:
+#   - addresses:
+# $(echo $IPS | tr ' ' '\n' | sed 's/^/    - ip: /')
+#     ports:
+#       - name: metrics
+#         port: 2381
+#         protocol: TCP
+# EOF
+---
 apiVersion: v1
 kind: Service
 metadata:
