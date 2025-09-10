@@ -1,8 +1,25 @@
-apiVersion: monitoring.coreos.com/v1
-kind: PodMonitor
+apiVersion: v1
+kind: Service
 metadata:
   name: ops-etcd
-  namespace: monitoring 
+  namespace: kube-system
+  labels:
+    app: etcd
+spec:
+  selector:
+    component: etcd
+    tier: control-plane
+  ports:
+    - name: metric
+      port: 2381
+      targetPort: 2381
+      protocol: TCP
+---
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  name: ops-etcd
+  namespace: monitoring
   labels:
     tier: ops
 spec:
@@ -11,9 +28,9 @@ spec:
       - kube-system
   selector:
     matchLabels:
-      component: etcd
-  podMetricsEndpoints:
-    - port: "2381"
+      app: etcd
+  endpoints:
+    - port: metric
       path: /metrics
       interval: 15s
       scheme: http
