@@ -13,7 +13,7 @@ spec:
     matchLabels:
       component: etcd
   podMetricsEndpoints:
-    - port: 2381
+    - port: "2381"
       path: /metrics
       interval: 15s
       scheme: http
