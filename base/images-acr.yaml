@@ -1,3 +1,4 @@
+openresty/openresty: registry.cn-beijing.aliyuncs.com/opshub/openresty-openresty
 registry: registry.cn-beijing.aliyuncs.com/opshub/registry
 tonistiigi/binfmt: registry.cn-beijing.aliyuncs.com/opshub/tonistiigi-binfmt
 bitnami/redis: registry.cn-beijing.aliyuncs.com/opshub/bitnami-redis
