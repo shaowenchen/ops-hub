@@ -1,3 +1,4 @@
+lmcache/vllm-openai: registry.cn-beijing.aliyuncs.com/opshub/lmcache-vllm-openai
 hiyouga/llamafactory: registry.cn-beijing.aliyuncs.com/opshub/hiyouga-llamafactory
 verlai/verl: registry.cn-beijing.aliyuncs.com/opshub/verlai-verl
 lmsysorg/sglang: registry.cn-beijing.aliyuncs.com/opshub/lmsysorg-sglang
