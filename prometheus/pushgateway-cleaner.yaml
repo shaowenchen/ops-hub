@@ -1,0 +1,38 @@
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: pushgateway-cleaner
+  namespace: monitoring
+spec:
+  schedule: "0 0 * * *"
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          nodeSelector:
+            monitoring: "true"
+          restartPolicy: OnFailure
+          containers:
+            - name: cleanup
+              image: shaowenchen/runtime-ubuntu:18.04
+              command:
+                - /bin/sh
+                - -c
+                - |
+                  PUSHGATEWAY="http://pushgateway.monitoring.svc:9091"
+                  RETENTION_HOURS=1
+                  CURRENT_TS=$(date +%s)
+
+                  METRIC_GROUPS=$(curl -s "${PUSHGATEWAY}/api/v1/metrics" | jq -c '.data[]')
+
+                  for group in $METRIC_GROUPS; do
+                    PUSH_TIME=$(echo $group | jq -r '.pushTimeUnixSeconds')
+                    AGE_HOURS=$(( (CURRENT_TS - PUSH_TIME) / 3600 ))
+                    
+                    if [ $AGE_HOURS -gt $RETENTION_HOURS ]; then
+                      JOB_NAME=$(echo $group | jq -r '.labels.job')
+                      INSTANCE=$(echo $group | jq -r '.labels.instance')
+                      echo "Deleting ${JOB_NAME}/${INSTANCE} (age: ${AGE_HOURS}h)"
+                      curl -s -X DELETE "${PUSHGATEWAY}/metrics/job/${JOB_NAME}/instance/${INSTANCE}"
+                    fi
+                  done
