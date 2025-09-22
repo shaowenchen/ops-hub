@@ -43,7 +43,7 @@ spec:
       sourceLabels:
       - __meta_kubernetes_namespace
       targetLabel: namespace
-    targetPort: 4040
+    port: 4040
     path: /metrics/prometheus/
   selector:
     matchLabels:
