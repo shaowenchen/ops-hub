@@ -1,4 +1,5 @@
 # jaeger
+jaegertracing/jaeger-query: registry.cn-beijing.aliyuncs.com/opshub/jaegertracing-jaeger-query
 jaegertracing/jaeger-agent: registry.cn-beijing.aliyuncs.com/opshub/jaegertracing-jaeger-agent
 # elasticsearch
 elastic/kibana: registry.cn-beijing.aliyuncs.com/opshub/elastic-kibana
