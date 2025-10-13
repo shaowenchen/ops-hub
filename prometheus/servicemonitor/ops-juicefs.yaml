@@ -1,0 +1,34 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: ops-juicefs-monitor
+  namespace: default
+  labels:
+    app: juicefs
+spec:
+  selector:
+    app: juicefs
+  ports:
+  - name: metrics
+    port: 15275
+    targetPort: 15275
+    protocol: TCP
+---
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  labels:
+    tier: ops
+  name: ops-juicefs
+  namespace: monitoring
+spec:
+  namespaceSelector:
+    any: true
+  endpoints:
+  - port: metrics
+    interval: 15s
+    scheme: http
+    path: /metrics
+  selector:
+    matchLabels:
+      app: juicefs
