@@ -1,0 +1,21 @@
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  name: ops-dragonfly
+  namespace: monitoring
+  labels:
+    tier: ops
+    app: dragonfly
+spec:
+  selector:
+    matchLabels:
+      app: dragonfly
+  namespaceSelector:
+    matchNames:
+      - dragonfly-system
+  endpoints:
+    - port: http-metrics
+      interval: 15s
+      path: /metrics
+      scheme: http
+      honorLabels: true
