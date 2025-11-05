@@ -19,6 +19,7 @@ quay.io/superq/smokeping-prober: registry.cn-beijing.aliyuncs.com/opshub/quay-io
 dragonflyoss/scheduler: registry.cn-beijing.aliyuncs.com/opshub/dragonflyoss-scheduler
 dragonflyoss/dfdaemon: registry.cn-beijing.aliyuncs.com/opshub/dragonflyoss-dfdaemon
 dragonflyoss/manager: registry.cn-beijing.aliyuncs.com/opshub/dragonflyoss-manager
+dragonflyoss/client: registry.cn-beijing.aliyuncs.com/opshub/dragonflyoss-client
 # sriov
 ghcr.io/k8snetworkplumbingwg/multus-cni: registry.cn-beijing.aliyuncs.com/opshub/ghcr-io-k8snetworkplumbingwg-multus-cni
 ghcr.io/k8snetworkplumbingwg/sriov-cni: registry.cn-beijing.aliyuncs.com/opshub/ghcr-io-k8snetworkplumbingwg-sriov-cni
