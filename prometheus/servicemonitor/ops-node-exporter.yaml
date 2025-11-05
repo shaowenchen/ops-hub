@@ -14,6 +14,16 @@ spec:
   selector:
     k8s-app: node-exporter
 ---
+apiVersion: v1
+kind: Secret
+metadata:
+  name: node-exporter-basic-auth
+  namespace: monitoring
+type: Opaque
+data:
+  username: ZGVmYXVsdA==   # echo -n 'default' | base64
+  password: eHh4eHh4eHh4   # echo -n 'xxx' | base64
+---
 apiVersion: monitoring.coreos.com/v1
 kind: ServiceMonitor
 metadata:
