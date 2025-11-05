@@ -45,7 +45,7 @@ spec:
     fsGroup: 2000
     runAsNonRoot: true
     runAsUser: 1000
-  serviceAccountName: prometheus
+  serviceAccountName: prometheus-operator
   serviceMonitorSelector:
     matchLabels:
       tier: ops
