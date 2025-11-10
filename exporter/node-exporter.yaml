@@ -17,17 +17,26 @@ spec:
       labels:
         k8s-app: node-exporter
     spec:
+      affinity:
+        nodeAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+            nodeSelectorTerms:
+              - matchExpressions:
+                  - key: type
+                    operator: NotIn
+                    values:
+                      - virtual-kubelet
       containers:
-      - image: registry.cn-beijing.aliyuncs.com/opshub/quay-io-prometheus-node-exporter
-        args:
-        - --collector.tcpstat
-        imagePullPolicy: IfNotPresent
-        name: node-exporter
-        ports:
-        - containerPort: 9100
-          hostPort: 9100
-          name: scrape
-          protocol: TCP
+        - image: registry.cn-beijing.aliyuncs.com/opshub/quay-io-prometheus-node-exporter
+          args:
+            - --collector.tcpstat
+          imagePullPolicy: IfNotPresent
+          name: node-exporter
+          ports:
+            - containerPort: 9100
+              hostPort: 9100
+              name: scrape
+              protocol: TCP
       hostNetwork: true
       tolerations:
-      - operator: Exists
+        - operator: Exists
