@@ -42,7 +42,6 @@ metadata:
   namespace: monitoring
   labels:
     tier: ops
-    app: etcd
 spec:
   namespaceSelector:
     matchNames:
