@@ -19,6 +19,15 @@ spec:
         prometheus.io/path: "/metrics"
         prometheus.io/scheme: "http"
     spec:
+      affinity:
+        nodeAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+            nodeSelectorTerms:
+              - matchExpressions:
+                  - key: type
+                    operator: NotIn
+                    values:
+                      - virtual-kubelet
       containers:
         - name: process-exporter
           image: registry.cn-beijing.aliyuncs.com/opshub/ncabatoff-process-exporter
