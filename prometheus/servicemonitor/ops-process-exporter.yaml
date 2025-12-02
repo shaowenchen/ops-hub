@@ -25,12 +25,6 @@ spec:
   endpoints:
   - interval: 60s
     port: metrics
-    metricRelabelings:
-    # 只保留核心的进程指标
-    - action: keep
-      regex: namedprocess_(namegroup_cpu_seconds_total|namegroup_memory_bytes|namegroup_num_procs|namegroup_open_filedesc|namegroup_read_bytes_total|namegroup_write_bytes_total)
-      sourceLabels:
-      - __name__
   namespaceSelector:
     matchNames:
     - monitoring

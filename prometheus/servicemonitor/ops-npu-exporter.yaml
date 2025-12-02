@@ -32,12 +32,6 @@ spec:
       sourceLabels:
       - __meta_kubernetes_endpoint_node_name
       targetLabel: node
-    metricRelabelings:
-    # 只保留核心的 NPU 指标
-    - action: keep
-      regex: npu_(chip_info|utilization|health_status|temperature|power|hbm_used_memory|hbm_total_memory|aicore_current_rate|ai_cpu_current_rate)
-      sourceLabels:
-      - __name__
   namespaceSelector:
     matchNames:
     - monitoring

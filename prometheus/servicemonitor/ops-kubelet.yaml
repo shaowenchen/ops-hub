@@ -15,22 +15,6 @@ spec:
     tlsConfig:
       caFile: /var/run/secrets/kubernetes.io/serviceaccount/ca.crt
       insecureSkipVerify: true
-    metricRelabelings:
-    # 只保留容器相关的核心指标
-    - action: keep
-      regex: container_(cpu_usage_seconds_total|memory_working_set_bytes|memory_rss|network_receive_bytes_total|network_transmit_bytes_total|fs_writes_bytes_total|fs_reads_bytes_total|cpu_cfs_throttled_periods_total|cpu_cfs_periods_total|oom_events_total)
-      sourceLabels:
-      - __name__
-    # 删除不必要的 container 标签（为空的）
-    - action: drop
-      regex: ;
-      sourceLabels:
-      - container
-    # 删除 POD 级别的指标（保留容器级别）
-    - action: drop
-      regex: POD
-      sourceLabels:
-      - container
   - path: /metrics
     port: https-metrics
     scheme: https
@@ -40,12 +24,6 @@ spec:
     tlsConfig:
       insecureSkipVerify: true
       caFile: /var/run/secrets/kubernetes.io/serviceaccount/ca.crt
-    metricRelabelings:
-    # 只保留 kubelet 核心指标
-    - action: keep
-      regex: kubelet_(running_pods|running_containers|node_name|volume_stats.*|pod_start_duration_seconds.*|pod_worker_duration_seconds.*)
-      sourceLabels:
-      - __name__
   - path: /metrics/resource
     port: https-metrics
     scheme: https
@@ -55,12 +33,6 @@ spec:
     tlsConfig:
       insecureSkipVerify: true
       caFile: /var/run/secrets/kubernetes.io/serviceaccount/ca.crt
-    metricRelabelings:
-    # 只保留资源相关的核心指标
-    - action: keep
-      regex: (container|pod|node)_(cpu_usage_seconds_total|memory_working_set_bytes)
-      sourceLabels:
-      - __name__
   namespaceSelector:
     matchNames:
     - kube-system

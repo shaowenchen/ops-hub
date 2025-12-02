@@ -35,11 +35,5 @@ spec:
     interval: 15s
     scheme: http
     path: /metrics
-    metricRelabelings:
-    # 只保留核心的 kube-proxy 指标
-    - action: keep
-      regex: kubeproxy_(sync_proxy_rules_duration_seconds.*|network_programming_duration_seconds.*|sync_proxy_rules_last_timestamp_seconds)
-      sourceLabels:
-      - __name__
   targetLabels:
   - k8s-app
