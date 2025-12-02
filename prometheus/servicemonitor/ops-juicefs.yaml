@@ -29,6 +29,12 @@ spec:
     interval: 15s
     scheme: http
     path: /metrics
+    metricRelabelings:
+    # 只保留核心的 JuiceFS 指标
+    - action: keep
+      regex: juicefs_(used_space|used_inodes|cpu_usage|memory_usage|object_request_durations.*|blockcache_.*|fuse_.*_durations.*|transaction_durations.*)
+      sourceLabels:
+      - __name__
   selector:
     matchLabels:
       app: juicefs

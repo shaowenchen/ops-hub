@@ -25,6 +25,12 @@ spec:
   endpoints:
     - interval: 15s
       port: metrics
+      metricRelabelings:
+      # 只保留核心的 GPU 进程指标
+      - action: keep
+        regex: process_(gpu_utilization|gpu_memory_usage|sm_utilization|gpu_memory_total|command_line|process_count)
+        sourceLabels:
+        - __name__
   namespaceSelector:
     matchNames:
       - monitoring

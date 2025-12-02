@@ -54,3 +54,15 @@ spec:
       path: /metrics
       interval: 15s
       scheme: http
+      metricRelabelings:
+      # 只保留核心的 etcd 指标
+      - action: keep
+        regex: etcd_(server_proposals_failed_total|server_proposals_pending|server_proposals_committed_total|disk_wal_fsync_duration_seconds.*|disk_backend_commit_duration_seconds.*|mvcc_db_total_size_in_bytes|network_client_grpc_received_bytes_total|network_client_grpc_sent_bytes_total|network_peer_received_bytes_total|network_peer_sent_bytes_total|server_has_leader|server_leader_changes_seen_total|grpc_server_handled_total|grpc_server_started_total)
+        sourceLabels:
+        - __name__
+      # 删除过细的 histogram buckets
+      - action: drop
+        regex: etcd_(disk_wal_fsync_duration_seconds_bucket|disk_backend_commit_duration_seconds_bucket);(0\.001|0\.002|0\.004|0\.008|0\.016|0\.032|0\.064|0\.128|0\.256|0\.512|1\.024|2\.048|4\.096|8\.192)
+        sourceLabels:
+        - __name__
+        - le

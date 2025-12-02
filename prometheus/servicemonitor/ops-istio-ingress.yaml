@@ -9,14 +9,21 @@ spec:
   endpoints:
   - interval: 15s
     metricRelabelings:
+    # 只保留核心的 Istio Ingress 指标
     - action: keep
-      regex: ^(istio_).*
+      regex: istio_(requests_total|request_duration_milliseconds.*|request_bytes.*|response_bytes.*|tcp_connections_opened_total|tcp_connections_closed_total|tcp_sent_bytes_total|tcp_received_bytes_total)
       sourceLabels:
       - __name__
     - action: keep
       regex: unknown
       sourceLabels:
       - destination_app
+    # 删除过细的 histogram buckets
+    - action: drop
+      regex: istio_request_duration_milliseconds_bucket;(0\.5|1\.5|2\.5|3\.5|4\.5|7\.5|15|30|45|75|150|300|450|750|1500|3000|4500|7500)
+      sourceLabels:
+      - __name__
+      - le
     path: /stats/prometheus
     port: http-envoy-prom
   namespaceSelector:

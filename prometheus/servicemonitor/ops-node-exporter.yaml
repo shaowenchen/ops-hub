@@ -22,7 +22,7 @@ metadata:
 type: Opaque
 data:
   username: ZGVmYXVsdA==   # echo -n 'default' | base64
-  password: eHh4eHh4eHh4   # echo -n 'xxx' | base64
+  password: S1Bxb0VRMWJaQmRpY2Z1Tlk=   # echo -n 'KPqoEQ1bZBdicfuNY' | base64
 ---
 apiVersion: monitoring.coreos.com/v1
 kind: ServiceMonitor
@@ -47,6 +47,22 @@ spec:
       sourceLabels:
       - __meta_kubernetes_endpoint_node_name
       targetLabel: node
+    metricRelabelings:
+    # 只保留核心的 node-exporter 指标
+    - action: keep
+      regex: node_(cpu_seconds_total|load1|load5|load15|memory_MemTotal_bytes|memory_MemAvailable_bytes|memory_Buffers_bytes|memory_Cached_bytes|memory_MemFree_bytes|memory_Slab_bytes|filesystem_avail_bytes|filesystem_size_bytes|filesystem_files|filesystem_files_free|disk_read_bytes_total|disk_written_bytes_total|disk_io_time_seconds_total|network_receive_bytes_total|network_transmit_bytes_total|network_receive_drop_total|network_transmit_drop_total|network_receive_errs_total|network_transmit_errs_total|time_seconds|boot_time_seconds|uname_info)
+      sourceLabels:
+      - __name__
+    # 只保留特定文件系统类型
+    - action: keep
+      regex: (ext4|xfs|tmpfs|overlay)
+      sourceLabels:
+      - fstype
+    # 删除 loop 和 tmpfs (除了 /run 和 /dev) 设备
+    - action: drop
+      regex: (/dev/loop.*|/run/.*|/var/lib/kubelet/.*)
+      sourceLabels:
+      - mountpoint
   namespaceSelector:
     matchNames:
     - monitoring

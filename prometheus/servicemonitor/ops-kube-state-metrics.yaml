@@ -9,12 +9,9 @@ spec:
   endpoints:
   - interval: 15s
     metricRelabelings:
+    # 只保留核心的 kube-state-metrics 指标
     - action: keep
-      regex: ^(.*)$
-      sourceLabels:
-      - exported_namespace
-    - action: keep
-      regex: kube_(pod|node)_.*
+      regex: kube_(pod_status_phase|pod_container_status_.*|pod_container_resource_.*|node_status_condition|node_status_capacity|node_status_allocatable|deployment_status_.*|deployment_spec_replicas|statefulset_status_.*|statefulset_replicas|daemonset_status_.*|job_status_.*|persistentvolumeclaim_.*|namespace_status_phase)
       sourceLabels:
       - __name__
     port: http-metrics
