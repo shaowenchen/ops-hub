@@ -8,22 +8,23 @@ metadata:
 spec:
   externalLabels:
     cluster: default
+  nodeSelector:
+    monitoring: "true"
   storage:
     emptyDir: {}
+  retention: 1s
+  terminationGracePeriodSeconds: 0
   podMetadata:
     labels:
       prometheus-instance: ops
-  retention: 2h
   alerting:
     alertmanagers:
-    - name: alertmanager-mopsn
-      namespace: monitoring
-      pathPrefix: /alertmanager
-      port: web
+      - name: alertmanager-mopsn
+        namespace: monitoring
+        pathPrefix: /alertmanager
+        port: web
   evaluationInterval: 30s
   externalUrl: /prometheus
-  nodeSelector:
-    monitoring: "true"
   portName: web
   replicas: 1
   resources:
@@ -33,7 +34,6 @@ spec:
     requests:
       cpu: 500m
       memory: 400Mi
-  retention: 2h
   routePrefix: /prometheus
   ruleNamespaceSelector: {}
   ruleSelector:
