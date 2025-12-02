@@ -6,14 +6,12 @@ metadata:
   name: ops
   namespace: monitoring
 spec:
+  walCompression: true
   externalLabels:
     cluster: default
   nodeSelector:
     monitoring: "true"
-  storage:
-    emptyDir: {}
-  retention: 1s
-  terminationGracePeriodSeconds: 0
+  retention: 2h
   podMetadata:
     labels:
       prometheus-instance: ops
@@ -23,24 +21,24 @@ spec:
         namespace: monitoring
         pathPrefix: /alertmanager
         port: web
-  evaluationInterval: 30s
+  evaluationInterval: 60s
+  scrapeInterval: 60s
   externalUrl: /prometheus
+  routePrefix: /prometheus
   portName: web
   replicas: 1
   resources:
     limits:
-      cpu: "2"
-      memory: 6Gi
+      cpu: "1"
+      memory: 3Gi
     requests:
-      cpu: 500m
-      memory: 400Mi
-  routePrefix: /prometheus
+      cpu: 200m
+      memory: 512Mi
   ruleNamespaceSelector: {}
   ruleSelector:
     matchLabels:
       prometheus: ops
       role: alert-rules
-  scrapeInterval: 30s
   securityContext:
     fsGroup: 2000
     runAsNonRoot: true
