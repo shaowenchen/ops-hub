@@ -38,14 +38,12 @@ spec:
           image: registry.cn-beijing.aliyuncs.com/opshub/quay-io-prometheus-node-exporter
           imagePullPolicy: IfNotPresent
           args:
+            - '--collector.tcpstat'
             - '--path.procfs=/host/proc'
             - '--path.sysfs=/host/sys'
             - '--path.rootfs=/host'
-            - '--web.listen-address=:9100'
-            - '--no-collector.ipvs'
-            - >-
-              --collector.filesystem.ignored-mount-points=^/(dev|proc|sys|var/lib/docker/.+|data/docker/.+)($|/)
-            - '--collector.tcpstat'
+            - '--collector.filesystem.ignored-mount-points=^/(dev|proc|sys|var/lib/docker/.+|host/data/run/containerd/.+)($|/)'
+            - '--collector.filesystem.ignored-fs-types=^(autofs|binfmt_misc|bpf|cgroup2?|configfs|debugfs|devpts|devtmpfs|fusectl|hugetlbfs|iso9660|mqueue|nsfs|overlay|proc|procfs|pstore|rpc_pipefs|securityfs|selinuxfs|squashfs|sysfs|tracefs)$'
           ports:
             - containerPort: 9100
               hostPort: 9100
@@ -61,6 +59,9 @@ spec:
             - name: root
               mountPath: /host
               readOnly: true
+      hostNetwork: true
+      hostPID: true
+      hostIPC: true
       volumes:
         - name: proc
           hostPath:
