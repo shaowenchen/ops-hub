@@ -6,6 +6,10 @@ metadata:
   name: node-exporter
   namespace: monitoring
 spec:
+  updateStrategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxUnavailable: 20%
   selector:
     matchLabels:
       k8s-app: node-exporter
@@ -17,6 +21,9 @@ spec:
       labels:
         k8s-app: node-exporter
     spec:
+      hostNetwork: true
+      tolerations:
+        - operator: Exists
       affinity:
         nodeAffinity:
           requiredDuringSchedulingIgnoredDuringExecution:
@@ -27,16 +34,43 @@ spec:
                     values:
                       - virtual-kubelet
       containers:
-        - image: registry.cn-beijing.aliyuncs.com/opshub/quay-io-prometheus-node-exporter
-          args:
-            - --collector.tcpstat
+        - name: node-exporter
+          image: registry.cn-beijing.aliyuncs.com/opshub/quay-io-prometheus-node-exporter
           imagePullPolicy: IfNotPresent
-          name: node-exporter
+          args:
+            - '--path.procfs=/host/proc'
+            - '--path.sysfs=/host/sys'
+            - '--path.rootfs=/host'
+            - '--web.listen-address=:9100'
+            - '--no-collector.ipvs'
+            - >-
+              --collector.filesystem.ignored-mount-points=^/(dev|proc|sys|var/lib/docker/.+|data/docker/.+)($|/)
+            - '--collector.tcpstat'
           ports:
             - containerPort: 9100
               hostPort: 9100
               name: scrape
               protocol: TCP
-      hostNetwork: true
-      tolerations:
-        - operator: Exists
+          volumeMounts:
+            - name: proc
+              mountPath: /host/proc
+              readOnly: true
+            - name: sys
+              mountPath: /host/sys
+              readOnly: true
+            - name: root
+              mountPath: /host
+              readOnly: true
+      volumes:
+        - name: proc
+          hostPath:
+            path: /proc
+            type: Directory
+        - name: sys
+          hostPath:
+            path: /sys
+            type: Directory
+        - name: root
+          hostPath:
+            path: /
+            type: Directory
