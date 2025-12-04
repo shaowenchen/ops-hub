@@ -7,7 +7,9 @@ metadata:
   namespace: monitoring
 spec:
   endpoints:
-  - bearerTokenFile: /var/run/secrets/kubernetes.io/serviceaccount/token
+  - authorization:
+      type: Bearer
+      credentialsFile: /var/run/secrets/kubernetes.io/serviceaccount/token
     interval: 15s
     path: /metrics/cadvisor
     port: https-metrics
@@ -20,7 +22,9 @@ spec:
     scheme: https
     interval: 15s
     honorLabels: true
-    bearerTokenFile: /var/run/secrets/kubernetes.io/serviceaccount/token
+    authorization:
+      type: Bearer
+      credentialsFile: /var/run/secrets/kubernetes.io/serviceaccount/token
     tlsConfig:
       insecureSkipVerify: true
       caFile: /var/run/secrets/kubernetes.io/serviceaccount/ca.crt
@@ -29,7 +33,9 @@ spec:
     scheme: https
     interval: 15s
     honorLabels: true
-    bearerTokenFile: /var/run/secrets/kubernetes.io/serviceaccount/token
+    authorization:
+      type: Bearer
+      credentialsFile: /var/run/secrets/kubernetes.io/serviceaccount/token
     tlsConfig:
       insecureSkipVerify: true
       caFile: /var/run/secrets/kubernetes.io/serviceaccount/ca.crt

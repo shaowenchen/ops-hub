@@ -7,14 +7,18 @@ metadata:
   namespace: monitoring
 spec:
   endpoints:
-  - bearerTokenFile: /var/run/secrets/kubernetes.io/serviceaccount/token
+  - authorization:
+      type: Bearer
+      credentialsFile: /var/run/secrets/kubernetes.io/serviceaccount/token
     interval: 15s
     port: https
     scheme: https
     tlsConfig:
       caFile: /var/run/secrets/kubernetes.io/serviceaccount/ca.crt
       serverName: kubernetes
-  - bearerTokenFile: /var/run/secrets/kubernetes.io/serviceaccount/token
+  - authorization:
+      type: Bearer
+      credentialsFile: /var/run/secrets/kubernetes.io/serviceaccount/token
     interval: 5s
     path: /metrics/slis
     port: https
