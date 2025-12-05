@@ -20,7 +20,7 @@ kind: ServiceMonitor
 metadata:
   annotations:
   labels:
-    tier: ops
+    ops: "true"
   name: ops-npu-exporter
   namespace: monitoring
 spec:

@@ -46,9 +46,9 @@ spec:
   serviceAccountName: prometheus
   serviceMonitorSelector:
     matchLabels:
-      tier: ops
+      ops: "true"
   podMonitorSelector:
     matchLabels:
-      tier: ops
+      ops: "true"
   thanos:
     image: registry.cn-beijing.aliyuncs.com/opshub/thanosio-thanos:v0.25.2

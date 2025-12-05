@@ -18,7 +18,7 @@ apiVersion: monitoring.coreos.com/v1
 kind: ServiceMonitor
 metadata:
   labels:
-    tier: ops
+    ops: "true"
   name: ops-juicefs
   namespace: monitoring
 spec:

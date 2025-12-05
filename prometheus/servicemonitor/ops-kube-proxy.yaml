@@ -22,7 +22,7 @@ metadata:
   name: ops-kube-proxy
   namespace: monitoring
   labels:
-    tier: ops
+    ops: "true"
 spec:
   namespaceSelector:
     matchNames:

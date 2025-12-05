@@ -1,16 +1,20 @@
 apiVersion: monitoring.coreos.com/v1alpha1
 kind: PrometheusAgent
 metadata:
-  name: agent-example
+  name: ops
   namespace: monitoring
 spec:
+  nodeSelector:
+    monitoring: "true"
+  externalLabels:
+    cluster: default
   hostAliases:
   - hostnames:
     - example.com
     ip: 1.2.3.4
   podMonitorSelector:
     matchLabels:
-      tier: atms
+      ops: "true"
   portName: web
   remoteWrite:
   - bearerToken: xxx
@@ -28,4 +32,4 @@ spec:
   serviceAccountName: prometheus
   serviceMonitorSelector:
     matchLabels:
-      tier: atms
+      ops: "true"

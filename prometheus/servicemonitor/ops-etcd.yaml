@@ -41,7 +41,7 @@ metadata:
   name: ops-etcd
   namespace: monitoring
   labels:
-    tier: ops
+    ops: "true"
 spec:
   namespaceSelector:
     matchNames:

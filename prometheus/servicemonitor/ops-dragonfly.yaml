@@ -4,7 +4,7 @@ metadata:
   name: ops-dragonfly
   namespace: monitoring
   labels:
-    tier: ops
+    ops: "true"
 spec:
   selector:
     matchLabels:
