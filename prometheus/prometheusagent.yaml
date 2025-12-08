@@ -20,6 +20,7 @@ spec:
   - bearerToken: xxx
     name: remote-write
     url: https://example/prometheus/api/v1/write
+    remoteTimeout: 120s
   replicas: 1
   resources:
     limits:
