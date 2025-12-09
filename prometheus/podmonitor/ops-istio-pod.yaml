@@ -3,15 +3,15 @@ kind: PodMonitor
 metadata:
   labels:
     ops: "true"
-  name: ops-juicefs-pod
+  name: ops-istio-pod
   namespace: monitoring
 spec:
   namespaceSelector:
     any: true
   podMetricsEndpoints:
-  - interval: 15s
-    path: /metrics
-    port: metrics
+  - interval: 30s
+    path: /stats/prometheus
+    port: http-envoy-prom
   selector:
     matchLabels:
-      app: juicefs
+      sidecar.istio.io/inject: "true"
