@@ -8,6 +8,7 @@ metadata:
 spec:
   podMetricsEndpoints:
   - interval: 30s
+    scrapeTimeout: 25s
     port: scrape
     basicAuth:
       username:
