@@ -20,6 +20,8 @@ spec:
     multiInterfaceMode: None
     nodeAddressAutodetectionV4:
       interface: ib.*|eth.*|en.*|bo.*
+      # canReach: 10.10.10.10
+      # firstFound: true
   cni:
     ipam:
       type: Calico
