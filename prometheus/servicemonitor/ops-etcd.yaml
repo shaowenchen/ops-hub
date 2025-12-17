@@ -2,6 +2,8 @@
 #   -l component=etcd \
 #   -o jsonpath='{.items[*].status.podIP}')
 
+# IPS=$(kubectl get nodes -l node-role.kubernetes.io/control-plane -o jsonpath='{.items[*].status.addresses[?(@.type=="InternalIP")].address}' 2>/dev/null || kubectl get nodes -l node-role.kubernetes.io/master -o jsonpath='{.items[*].status.addresses[?(@.type=="InternalIP")].address}')
+
 # kubectl apply -f - << EOF
 # apiVersion: v1
 # kind: Endpoints
