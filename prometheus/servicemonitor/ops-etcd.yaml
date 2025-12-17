@@ -1,7 +1,6 @@
-# IPS=$(kubectl get nodes -l node-role.kubernetes.io/control-plane -o jsonpath='{.items[*].status.addresses[?(@.type=="InternalIP")].address}' 2>/dev/null || 
-#      kubectl get nodes -l node-role.kubernetes.io/master -o jsonpath='{.items[*].status.addresses[?(@.type=="InternalIP")].address}')
-
-# [ -z "$IPS" ] && { echo "No master IPs found"; exit 1; }
+# IPS=$(kubectl get pods -n kube-system \
+#   -l component=etcd \
+#   -o jsonpath='{.items[*].status.podIP}')
 
 # kubectl apply -f - << EOF
 # apiVersion: v1
