@@ -35,7 +35,7 @@ spec:
                       - virtual-kubelet
       containers:
         - name: node-exporter
-          image: registry.cn-beijing.aliyuncs.com/opshub/quay-io-prometheus-node-exporter
+          image: quay.io/prometheus/node-exporter
           imagePullPolicy: IfNotPresent
           args:
             - '--collector.tcpstat'

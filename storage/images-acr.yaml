@@ -19,6 +19,7 @@ alluxio/alluxio-dev: registry.cn-beijing.aliyuncs.com/opshub/alluxio-alluxio-dev
 fluidcloudnative/alluxioruntime-controller: registry.cn-beijing.aliyuncs.com/opshub/fluidcloudnative-alluxioruntime-controller
 fluidcloudnative/dataset-controller: registry.cn-beijing.aliyuncs.com/opshub/fluidcloudnative-dataset-controller
 fluidcloudnative/efcruntime-controller: registry.cn-beijing.aliyuncs.com/opshub/fluidcloudnative-efcruntime-controller
+fluidcloudnative/csi-node-driver-registrar: registry.cn-beijing.aliyuncs.com/opshub/fluidcloudnative-csi-node-driver-registrar
 
 # fluid
 juicedata/juicefs-csi-driver: registry.cn-beijing.aliyuncs.com/opshub/juicedata-juicefs-csi-driver
