@@ -8,6 +8,7 @@ registry.k8s.io/kube-state-metrics/kube-state-metrics: registry.cn-beijing.aliyu
 quay.io/prometheus-operator/prometheus-config-reloader: registry.cn-beijing.aliyuncs.com/opshub/quay-io-prometheus-operator-prometheus-config-reloader
 quay.io/prometheus-operator/prometheus-operator: registry.cn-beijing.aliyuncs.com/opshub/quay-io-prometheus-operator-prometheus-operator
 registry.k8s.io/metrics-server/metrics-server: registry.cn-beijing.aliyuncs.com/opshub/registry-k8s-io-metrics-server-metrics-server
+quay.io/thanos/thanos: registry.cn-beijing.aliyuncs.com/opshub/quay-io-thanos-thanos
 thanosio/thanos: registry.cn-beijing.aliyuncs.com/opshub/thanosio-thanos
 quay.io/prometheus/node-exporter: registry.cn-beijing.aliyuncs.com/opshub/quay-io-prometheus-node-exporter
 quay.io/prometheus/alertmanager: registry.cn-beijing.aliyuncs.com/opshub/quay-io-prometheus-alertmanager
