@@ -1,3 +1,5 @@
+victoriametrics/vmagent: registry.cn-beijing.aliyuncs.com/opshub/victoriametrics-vmagent
+victoriametrics/operator: registry.cn-beijing.aliyuncs.com/opshub/victoriametrics-operator
 prom/pushgateway: registry.cn-beijing.aliyuncs.com/opshub/prom-pushgateway
 grafana/grafana: registry.cn-beijing.aliyuncs.com/opshub/grafana-grafana
 ncabatoff/process-exporter: registry.cn-beijing.aliyuncs.com/opshub/ncabatoff-process-exporter
