@@ -15,5 +15,6 @@ spec:
       memory: "850Mi"
   extraArgs:
     memory.allowedPercent: "40"
+    promscrape.maxScrapeSize: 256MiB
   remoteWrite:
     - url: "http://vmsingle-example-vmsingle-pvc.default.svc:8429/api/v1/write"

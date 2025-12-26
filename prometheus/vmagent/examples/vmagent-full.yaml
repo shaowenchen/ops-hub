@@ -105,6 +105,7 @@ spec:
   serviceAccountName: vmagent
   extraArgs:
     memory.allowedPercent: "40"
+    promscrape.maxScrapeSize: 256MiB
   relabelConfig:
     name: "vm-agent-global-relabel-config"
     key: "relabel.yaml"

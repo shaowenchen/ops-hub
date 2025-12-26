@@ -39,6 +39,7 @@ spec:
       memory: 500Gi
   extraArgs:
     memory.allowedPercent: "40"
+    promscrape.maxScrapeSize: 256MiB
   host_aliases:
     - ip: 127.0.0.1
       hostnames:
