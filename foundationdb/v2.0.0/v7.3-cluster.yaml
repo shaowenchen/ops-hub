@@ -80,7 +80,7 @@ spec:
     enableLivenessProbe: true
     enableReadinessProbe: false
     imageConfigs:
-      - baseImage: registry.cn-beijing.aliyuncs.com/opshub/foundationdb-foundationdb-kubernetes-sidecar
+      - baseImage: foundationdb/foundationdb-kubernetes-sidecar
   mainContainer:
     imageConfigs:
       - baseImage: registry.cn-beijing.aliyuncs.com/opshub/foundationdb-foundationdb

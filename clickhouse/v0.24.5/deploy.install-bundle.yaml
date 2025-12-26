@@ -851,7 +851,7 @@ data:
                 "containers" : [
                   {
                     "name": "clickhouse",
-                    "image": "registry.cn-beijing.aliyuncs.com/opshub/clickhouse-clickhouse-server:23.8",
+                    "image": "clickhouse/clickhouse-server:23.8",
                     "ports": [
                       {
                         "name": "http",
@@ -1181,7 +1181,7 @@ spec:
             name: etc-keeper-operator-usersd-files
       containers:
         - name: clickhouse-operator
-          image: registry.cn-beijing.aliyuncs.com/opshub/altinity-clickhouse-operator:0.24.5
+          image: altinity/clickhouse-operator:0.24.5
           imagePullPolicy: Always
           volumeMounts:
             - name: etc-clickhouse-operator-folder
@@ -1257,7 +1257,7 @@ spec:
               name: metrics
 
         - name: metrics-exporter
-          image: registry.cn-beijing.aliyuncs.com/opshub/altinity-metrics-exporter:0.24.5
+          image: altinity/metrics-exporter:0.24.5
           imagePullPolicy: Always
           volumeMounts:
             - name: etc-clickhouse-operator-folder

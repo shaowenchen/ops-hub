@@ -1,3 +1,4 @@
+ghcr.io/containerd/nerdctl: registry.cn-beijing.aliyuncs.com/opshub/ghcr-io-containerd-nerdctl
 openresty/openresty: registry.cn-beijing.aliyuncs.com/opshub/openresty-openresty
 registry: registry.cn-beijing.aliyuncs.com/opshub/registry
 tonistiigi/binfmt: registry.cn-beijing.aliyuncs.com/opshub/tonistiigi-binfmt

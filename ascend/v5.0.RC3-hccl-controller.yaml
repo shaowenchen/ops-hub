@@ -59,7 +59,7 @@ spec:
           allowPrivilegeEscalation: false
           capabilities:
             drop: ["ALL"]
-        image: registry.cn-beijing.aliyuncs.com/opshub/ascend-hccl-controller:branch_v5.0.0-RC3
+        image: swr.cn-south-1.myhuaweicloud.com/ascendhub/hccl-controller:branch_v5.0.0-RC3
         resources:
           requests:
               memory: 300Mi

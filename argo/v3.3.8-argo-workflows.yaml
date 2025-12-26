@@ -1065,7 +1065,7 @@ spec:
       - args:
         - server
         env: []
-        image: registry.cn-beijing.aliyuncs.com/opshub/argoproj-argocli:v3.3.8
+        image: quay.io/argoproj/argocli:v3.3.8
         name: argo-server
         ports:
         - containerPort: 2746
@@ -1124,7 +1124,7 @@ spec:
             fieldRef:
               apiVersion: v1
               fieldPath: metadata.name
-        image: registry.cn-beijing.aliyuncs.com/opshub/argoproj-workflow-controller:v3.3.8
+        image: quay.io/argoproj/workflow-controller:v3.3.8
         livenessProbe:
           failureThreshold: 3
           httpGet:

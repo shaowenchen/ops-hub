@@ -40,7 +40,7 @@ spec:
               value: "true"
             - name: DCGM_EXPORTER_COLLECTORS
               value: /etc/dcgm-exporter/dcp-metrics-included.csv
-          image: registry.cn-beijing.aliyuncs.com/opshub/dcgm-exporter:3.1.7-3.1.4-ubuntu20.04
+          image: nvcr.io/nvidia/k8s/dcgm-exporter:3.1.7-3.1.4-ubuntu20.04
           imagePullPolicy: IfNotPresent
           name: dcgm-exporter
           ports:

@@ -51,4 +51,4 @@ spec:
     matchLabels:
       ops: "true"
   thanos:
-    image: registry.cn-beijing.aliyuncs.com/opshub/thanosio-thanos:v0.25.2
+    image: thanosio/thanos:v0.25.2
