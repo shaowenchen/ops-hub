@@ -83,6 +83,6 @@ spec:
       - baseImage: foundationdb/foundationdb-kubernetes-sidecar
   mainContainer:
     imageConfigs:
-      - baseImage: registry.cn-beijing.aliyuncs.com/opshub/foundationdb-foundationdb
+      - baseImage: foundationdb/foundationdb
   useExplicitListenAddress: true
   version: 7.3.59
