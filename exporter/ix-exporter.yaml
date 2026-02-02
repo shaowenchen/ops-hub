@@ -57,6 +57,8 @@ spec:
       tolerations:
         - key: CriticalAddonsOnly
           operator: Exists
+      nodeSelector:
+        ix-exporter: "true"
       priorityClassName: system-node-critical
       serviceAccountName: ix-exporter
       containers:
