@@ -111,21 +111,3 @@ spec:
         - name: tmp-dir
           hostPath:
             path: "/tmp/iluvatar"
-
----
-kind: Service
-apiVersion: v1
-metadata:
-  name: "ix-exporter"
-  namespace: "kube-system"
-  labels:
-    app.kubernetes.io/name: "ix-exporter"
-spec:
-  selector:
-    app.kubernetes.io/name: "ix-exporter"
-  type: NodePort
-  ports:
-    - name: "metrics"
-      port: 32021
-      targetPort: 32021
-      nodePort: 32021
