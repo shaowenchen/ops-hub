@@ -29,7 +29,7 @@ spec:
         prometheus.io/path: "/metrics"
     spec:
       serviceAccountName: smartctl-exporter
-      hostNetwork: false
+      hostNetwork: true
       dnsPolicy: ClusterFirst
       restartPolicy: Always
       containers:
