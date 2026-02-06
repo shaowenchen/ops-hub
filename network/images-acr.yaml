@@ -1,3 +1,4 @@
+haproxy: registry.cn-beijing.aliyuncs.com/opshub/haproxy
 traefik/whoami: registry.cn-beijing.aliyuncs.com/opshub/traefik-whoami
 tekn0ir/nginx-stream: registry.cn-beijing.aliyuncs.com/opshub/tekn0ir-nginx-stream
 softonic/nginx-vts: registry.cn-beijing.aliyuncs.com/opshub/softonic-nginx-vts
