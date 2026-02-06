@@ -5,7 +5,7 @@ metadata:
   namespace: monitoring
   labels:
     ops: "true"
-    app.kubernetes.io/name: prometheus-smartctl-exporter
+    app.kubernetes.io/name: smartctl-exporter
 spec:
   podMetricsEndpoints:
     - interval: 30s
@@ -15,10 +15,21 @@ spec:
       path: /metrics
       honorLabels: false
       honorTimestamps: false
+      relabelings:
+      - action: replace
+        sourceLabels:
+        - __meta_kubernetes_pod_node_name
+        targetLabel: node
+      - action: replace
+        sourceLabels:
+        - __meta_kubernetes_pod_ip
+        targetLabel: instance
+        regex: (.+)
+        replacement: $1
   jobLabel: app.kubernetes.io/name
   namespaceSelector:
     matchNames:
       - monitoring
   selector:
     matchLabels:
-      app.kubernetes.io/name: prometheus-smartctl-exporter
+      app.kubernetes.io/name: smartctl-exporter
