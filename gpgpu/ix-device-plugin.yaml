@@ -1,0 +1,92 @@
+# ix-device-plugin.yaml
+apiVersion: apps/v1
+kind: DaemonSet
+metadata:
+  name: iluvatar-device-plugin
+  namespace: kube-system
+  labels:
+    app.kubernetes.io/name: iluvatar-device-plugin
+spec:
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: iluvatar-device-plugin
+  template:
+    metadata:
+      annotations:
+        scheduler.alpha.kubernetes.io/critical-pod: ""
+      labels:
+        app.kubernetes.io/name: iluvatar-device-plugin
+    spec:
+      priorityClassName: "system-node-critical"
+      nodeSelector:
+        ix-device-plugin: "true"
+      securityContext:
+        null
+      containers:
+        - name: iluvatar-device-plugin
+          securityContext:
+            capabilities:
+              drop:
+              - ALL
+            privileged: true
+          image: "registry.iluvatar.com.cn:10443/k8s/ix-device-plugin:4.3.0"
+          imagePullPolicy: IfNotPresent
+          livenessProbe:
+            exec:
+              command:
+              - ls
+              - /var/lib/kubelet/device-plugins/iluvatar-gpu.sock
+            periodSeconds: 5
+          startupProbe:
+            exec:
+              command:
+              - ls
+              - /var/lib/kubelet/device-plugins/iluvatar-gpu.sock
+            periodSeconds: 5
+          resources:
+            {}
+          volumeMounts:
+            - mountPath: /var/lib/kubelet/device-plugins
+              name: device-plugin
+            - mountPath: /run/udev
+              name: udev-ctl
+              readOnly: true
+            - mountPath: /sys
+              name: sys
+              readOnly: true
+            - mountPath: /dev
+              name: dev
+            - name: ixc
+              mountPath: /ixconfig
+      volumes:
+        - hostPath:
+            path: /var/lib/kubelet/device-plugins
+          name: device-plugin
+        - hostPath:
+            path: /run/udev
+          name: udev-ctl
+        - hostPath:
+            path: /sys
+          name: sys
+        - hostPath:
+            path: /etc/udev/
+          name: udev-etc
+        - hostPath:
+            path: /dev
+          name: dev
+        - name: ixc
+          configMap:
+              name: ix-config
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: ix-config
+  namespace: kube-system
+data:
+  ix-config: |-
+    resourceName: "iluvatar.com/gpu"
+    flags:
+      splitboard: false
+      usevolcano: false
+      reset_gpu: false
