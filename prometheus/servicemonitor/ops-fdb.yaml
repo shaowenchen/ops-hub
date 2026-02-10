@@ -44,3 +44,9 @@ spec:
     - port: metrics
       path: /metrics
       interval: 30s
+      relabelings:
+        - sourceLabels: [__address__]
+          targetLabel: job
+          regex: '([^:]+)(?::\d+)?'
+          replacement: 'fdb-exporter-$1'
+          action: replace
