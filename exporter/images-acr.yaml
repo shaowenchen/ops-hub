@@ -1,2 +1,3 @@
+aikoven/foundationdb-exporter: registry.cn-beijing.aliyuncs.com/opshub/aikoven-foundationdb-exporter
 prometheuscommunity/smartctl-exporter: registry.cn-beijing.aliyuncs.com/opshub/prometheuscommunity-smartctl-exporter
 prom/blackbox-exporter: registry.cn-beijing.aliyuncs.com/opshub/prom-blackbox-exporter
