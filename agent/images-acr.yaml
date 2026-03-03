@@ -1,2 +1,2 @@
-alpine/openclaw: registry.cn-beijing.aliyuncs.com/opshub/alpine-openclaw
+ghcr.io/openclaw/openclaw: registry.cn-beijing.aliyuncs.com/opshub/ghcr-io-openclaw-openclaw
 neosmemo/memos: registry.cn-beijing.aliyuncs.com/opshub/neosmemo-memos
