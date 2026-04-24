@@ -1,0 +1,62 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: kibana
+  namespace: ops-system
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: kibana
+  template:
+    metadata:
+      labels:
+        app: kibana
+    spec:
+      containers:
+      - name: kibana
+        image: elastic/kibana:7.9.3
+        ports:
+        - containerPort: 5601
+        env:
+        - name: SERVER_HOST
+          value: "0.0.0.0"
+        - name: SERVER_PORT
+          value: "5601"
+        - name: SERVER_BASEPATH
+          value: "/kibana"
+        - name: SERVER_REWRITEBASEPATH
+          value: "true"
+        - name: SERVER_MAXPAYLOADBYTES
+          value: "1048576"
+        - name: SERVER_NAME
+          value: "kibana"
+        - name: ELASTICSEARCH_HOSTS
+          value: '["http://elasticsearch:9200"]'
+        - name: ELASTICSEARCH_USERNAME
+          value: "elastic"
+        - name: ELASTICSEARCH_PASSWORD
+          value: "xxxxx"
+        - name: XPACK_SECURITY_ENCRYPTIONKEY
+          value: "a1b2c3d4e5f67890abcdef1234567890abcdef"
+        resources:
+          limits:
+            cpu: 1000m
+            memory: 1Gi
+          requests:
+            cpu: 500m
+            memory: 512Mi
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: kibana
+  namespace: ops-system
+spec:
+  type: NodePort
+  ports:
+  - port: 5601
+    targetPort: 5601
+  selector:
+    app: kibana
