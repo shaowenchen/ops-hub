@@ -38,6 +38,7 @@ spec:
           image: quay.io/prometheus/node-exporter
           imagePullPolicy: IfNotPresent
           args:
+            - '--collector.meminfo_numa'
             - '--collector.tcpstat'
             - '--path.procfs=/host/proc'
             - '--path.sysfs=/host/sys'
