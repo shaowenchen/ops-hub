@@ -1,3 +1,9 @@
+# curl -X POST "http://http://elasticsearch:9200/_security/user/kibana_system/_password" \
+# -H "Content-Type: application/json" \
+# -u elastic:xxxxxx \
+# -d '{
+#   "password" : "xxxxxx"
+# }'
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -15,7 +21,7 @@ spec:
     spec:
       containers:
       - name: kibana
-        image: elastic/kibana:7.9.3
+        image: elastic/kibana:8.2.3
         ports:
         - containerPort: 5601
         env:
@@ -34,9 +40,9 @@ spec:
         - name: ELASTICSEARCH_HOSTS
           value: '["http://elasticsearch:9200"]'
         - name: ELASTICSEARCH_USERNAME
-          value: "elastic"
+          value: "kibana_system"
         - name: ELASTICSEARCH_PASSWORD
-          value: "xxxxx"
+          value: "xxxxxx"
         - name: XPACK_SECURITY_ENCRYPTIONKEY
           value: "a1b2c3d4e5f67890abcdef1234567890abcdef"
         resources:
