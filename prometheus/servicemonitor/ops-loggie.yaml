@@ -1,0 +1,17 @@
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  name: ops-loggie
+  namespace: monitoring
+  labels:
+    ops: "true"
+spec:
+  selector:
+    matchLabels:
+      app: loggie
+  namespaceSelector:
+    matchNames:
+    - loggie
+  endpoints:
+    - port: monitor
+      interval: 30s
