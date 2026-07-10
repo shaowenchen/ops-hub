@@ -1,4 +1,6 @@
 victoriametrics/victoria-metrics: registry.cn-beijing.aliyuncs.com/opshub/victoriametrics-victoria-metrics
+victoriametrics/vminsert: registry.cn-beijing.aliyuncs.com/opshub/victoriametrics-vminsert
+victoriametrics/vmselect: registry.cn-beijing.aliyuncs.com/opshub/victoriametrics-vmselect
 victoriametrics/vmagent: registry.cn-beijing.aliyuncs.com/opshub/victoriametrics-vmagent
 victoriametrics/operator: registry.cn-beijing.aliyuncs.com/opshub/victoriametrics-operator
 prom/pushgateway: registry.cn-beijing.aliyuncs.com/opshub/prom-pushgateway
