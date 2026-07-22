@@ -30,9 +30,9 @@ spec:
           env:
             - name: WATCH_NAMESPACE
               value: ""
-            - name: VM_VMAGENTDEFAULT_CONFIGRELOADIMAGE
-              value: quay.io/prometheus-operator/prometheus-config-reloader:v0.68.0
-          image: victoriametrics/operator:v0.41.0
+            - name: VM_CONFIG_RELOADER_IMAGE
+              value: quay.io/prometheus-operator/prometheus-config-reloader:v0.73.1
+          image: victoriametrics/operator:v0.73.1
           name: manager
           resources:
             limits:
