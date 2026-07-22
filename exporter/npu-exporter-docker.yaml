@@ -1,0 +1,106 @@
+apiVersion: apps/v1
+kind: DaemonSet
+metadata:
+  name: npu-exporter-docker
+  namespace: npu-exporter
+spec:
+  selector:
+    matchLabels:
+      app: npu-exporter-docker
+  template:
+    metadata:
+      annotations:
+        seccomp.security.alpha.kubernetes.io/pod: runtime/default
+      labels:
+        app: npu-exporter-docker
+    spec:
+      containers:
+      - args:
+        - umask 027;mkdir -p /home/hwMindX/npu-exporter/;npu-exporter -port=8082 -ip=0.0.0.0  -updateTime=5
+          -logFile=/var/log/mindx-dl/npu-exporter/npu-exporter.log -logLevel=0 -containerMode=docker
+        command:
+        - /bin/bash
+        - -c
+        - --
+        image: swr.cn-south-1.myhuaweicloud.com/ascendhub/npu-exporter:v26.0.0
+        imagePullPolicy: IfNotPresent
+        name: npu-exporter-docker
+        ports:
+        - containerPort: 8082
+          name: http
+          protocol: TCP
+        resources:
+          limits:
+            cpu: "1"
+            memory: 1000Mi
+          requests:
+            cpu: "1"
+            memory: 1000Mi
+        securityContext:
+          privileged: true
+          readOnlyRootFilesystem: true
+          runAsGroup: 0
+          runAsUser: 0
+        volumeMounts:
+        - mountPath: /var/log/mindx-dl/npu-exporter
+          name: log-npu-exporter
+        - mountPath: /etc/localtime
+          name: localtime
+          readOnly: true
+        - mountPath: /usr/local/Ascend/driver
+          name: ascend-driver
+          readOnly: true
+        - mountPath: /usr/local/dcmi
+          name: ascend-dcmi
+          readOnly: true
+        - mountPath: /sys
+          name: sys
+          readOnly: true
+        - mountPath: /var/run/dockershim.sock
+          name: docker-shim
+          readOnly: true
+        - mountPath: /var/run/docker
+          name: docker
+          readOnly: true
+        - mountPath: /var/run/cri-dockerd.sock
+          name: cri-dockerd
+          readOnly: true
+        - mountPath: /run/containerd
+          name: containerd
+          readOnly: true
+        - mountPath: /tmp
+          name: tmp
+      nodeSelector:
+        accelerator: huawei-Ascend910
+      volumes:
+      - hostPath:
+          path: /var/log/mindx-dl/npu-exporter
+          type: Directory
+        name: log-npu-exporter
+      - hostPath:
+          path: /etc/localtime
+        name: localtime
+      - hostPath:
+          path: /usr/local/Ascend/driver
+        name: ascend-driver
+      - hostPath:
+          path: /usr/local/dcmi
+        name: ascend-dcmi
+      - hostPath:
+          path: /sys
+        name: sys
+      - hostPath:
+          path: /var/run/dockershim.sock
+        name: docker-shim
+      - hostPath:
+          path: /var/run/docker
+        name: docker
+      - hostPath:
+          path: /var/run/cri-dockerd.sock
+        name: cri-dockerd
+      - hostPath:
+          path: /run/containerd
+        name: containerd
+      - hostPath:
+          path: /tmp
+        name: tmp
