@@ -83,7 +83,7 @@ spec:
             cpu: 1
         command: ["/bin/bash", "-c", "--"]
         args:
-          - device-plugin -useAscendDocker=true -volcanoType=true -presetVirtualDevice=true -logFile=/var/log/mindx-dl/devicePlugin/devicePlugin.log -logLevel=0
+          - device-plugin -useAscendDocker=false -volcanoType=false -presetVirtualDevice=true -logFile=/var/log/mindx-dl/devicePlugin/devicePlugin.log -logLevel=0
         securityContext:
           privileged: true
           readOnlyRootFilesystem: true
