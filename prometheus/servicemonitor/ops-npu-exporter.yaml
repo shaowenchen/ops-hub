@@ -4,7 +4,7 @@ metadata:
   labels:
     app: ops-npu-exporter
   name: ops-npu-exporter
-  namespace: kube-system
+  namespace: monitoring
 spec:
   ports:
   - name: metric
