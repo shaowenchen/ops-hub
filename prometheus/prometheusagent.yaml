@@ -12,6 +12,7 @@ spec:
   - hostnames:
     - example.com
     ip: 1.2.3.4
+  image: quay.io/prometheus/prometheus:v2.51.1
   podMonitorSelector:
     matchLabels:
       ops: "true"
