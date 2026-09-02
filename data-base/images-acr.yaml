@@ -1,2 +1,6 @@
 bitnami/redis: registry.cn-beijing.aliyuncs.com/opshub/bitnami-redis
 bitnami/mysql: registry.cn-beijing.aliyuncs.com/opshub/bitnami-mysql
+redis: registry.cn-beijing.aliyuncs.com/opshub/redis
+postgres: registry.cn-beijing.aliyuncs.com/opshub/postgres
+mongo: registry.cn-beijing.aliyuncs.com/opshub/mongo
+node: registry.cn-beijing.aliyuncs.com/opshub/node

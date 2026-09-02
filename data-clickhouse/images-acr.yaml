@@ -1,0 +1,3 @@
+altinity/clickhouse-operator: registry.cn-beijing.aliyuncs.com/opshub/altinity-clickhouse-operator
+clickhouse/clickhouse-server: registry.cn-beijing.aliyuncs.com/opshub/clickhouse-clickhouse-server
+altinity/metrics-exporter: registry.cn-beijing.aliyuncs.com/opshub/altinity-metrics-exporter

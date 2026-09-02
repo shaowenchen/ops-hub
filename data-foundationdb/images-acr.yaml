@@ -1,0 +1,3 @@
+foundationdb/fdb-kubernetes-operator: registry.cn-beijing.aliyuncs.com/opshub/foundationdb-fdb-kubernetes-operator
+foundationdb/foundationdb-kubernetes-sidecar: registry.cn-beijing.aliyuncs.com/opshub/foundationdb-foundationdb-kubernetes-sidecar
+foundationdb/foundationdb: registry.cn-beijing.aliyuncs.com/opshub/foundationdb-foundationdb

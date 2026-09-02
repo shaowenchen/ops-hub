@@ -1,0 +1,2 @@
+velero/velero: registry.cn-beijing.aliyuncs.com/opshub/velero-velero
+velero/velero-plugin-for-aws: registry.cn-beijing.aliyuncs.com/opshub/velero-velero-plugin-for-aws
