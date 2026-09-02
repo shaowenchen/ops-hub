@@ -6,7 +6,7 @@ fi
 
 default_proxy="https://ghproxy.chenshaowen.com/"
 proxy=${PROXY:-$default_proxy}
-repo_url="$proxy""https://raw.githubusercontent.com/shaowenchen/ops-hub/master/os-sources/debian/"
+repo_url="$proxy""https://raw.githubusercontent.com/shaowenchen/ops-hub/master/os/debian/"
 
 case $VERSION in
 7)
