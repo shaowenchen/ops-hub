@@ -6,7 +6,7 @@ fi
 
 default_proxy="https://ghproxy.chenshaowen.com/"
 proxy=${PROXY:-$default_proxy}
-repo_url="$proxy""https://raw.githubusercontent.com/shaowenchen/hubimage/main/mirror/centos/"
+repo_url="$proxy""https://raw.githubusercontent.com/shaowenchen/ops-hub/master/os-sources/centos/"
 
 case $VERSION in
 6)

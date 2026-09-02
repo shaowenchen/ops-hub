@@ -1,3 +1,6 @@
+shaowenchen/hccl-test: registry.cn-beijing.aliyuncs.com/opshub/shaowenchen-hccl-test
+shaowenchen/python38-cann: registry.cn-beijing.aliyuncs.com/opshub/shaowenchen-python38-cann
+shaowenchen/xpu-benchmark: registry.cn-beijing.aliyuncs.com/opshub/shaowenchen-xpu-benchmark
 openeuler/openeuler: registry.cn-beijing.aliyuncs.com/opshub/openeuler-openeuler
 swr.cn-south-1.myhuaweicloud.com/ascendhub/ascend-k8sdeviceplugin: registry.cn-beijing.aliyuncs.com/opshub/ascendhub-ascend-k8sdeviceplugin
 swr.cn-south-1.myhuaweicloud.com/ascendhub/vc-controller-manager: registry.cn-beijing.aliyuncs.com/opshub/ascendhub-vc-controller-manager

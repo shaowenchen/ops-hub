@@ -6,7 +6,7 @@ fi
 
 default_proxy="https://ghproxy.chenshaowen.com/"
 proxy=${PROXY:-$default_proxy}
-repo_url="$proxy""https://raw.githubusercontent.com/shaowenchen/ops-hub/master/mirror/ubuntu/"
+repo_url="$proxy""https://raw.githubusercontent.com/shaowenchen/ops-hub/master/os-sources/ubuntu/"
 
 case $VERSION in
 14.04)

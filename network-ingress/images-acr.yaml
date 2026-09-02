@@ -1,0 +1,9 @@
+quay.io/superq/smokeping-prober: registry.cn-beijing.aliyuncs.com/opshub/quay-io-superq-smokeping-prober
+haproxy: registry.cn-beijing.aliyuncs.com/opshub/haproxy
+traefik/whoami: registry.cn-beijing.aliyuncs.com/opshub/traefik-whoami
+tekn0ir/nginx-stream: registry.cn-beijing.aliyuncs.com/opshub/tekn0ir-nginx-stream
+softonic/nginx-vts: registry.cn-beijing.aliyuncs.com/opshub/softonic-nginx-vts
+sophos/nginx-vts-exporter: registry.cn-beijing.aliyuncs.com/opshub/sophos-nginx-vts-exporter
+registry.k8s.io/ingress-nginx/controller: registry.cn-beijing.aliyuncs.com/opshub/registry-k8s-io-ingress-nginx-controller
+nginx: registry.cn-beijing.aliyuncs.com/opshub/nginx
+openresty/openresty: registry.cn-beijing.aliyuncs.com/opshub/openresty-openresty

@@ -1,0 +1,2 @@
+bitnami/redis: registry.cn-beijing.aliyuncs.com/opshub/bitnami-redis
+bitnami/mysql: registry.cn-beijing.aliyuncs.com/opshub/bitnami-mysql
