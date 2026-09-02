@@ -1,1 +1,5 @@
 slimerl/slime: registry.cn-beijing.aliyuncs.com/opshub/slimerl-slime
+hiyouga/llamafactory: registry.cn-beijing.aliyuncs.com/opshub/hiyouga-llamafactory
+verlai/verl: registry.cn-beijing.aliyuncs.com/opshub/verlai-verl
+nvcr.io/nvidia/pytorch: registry.cn-beijing.aliyuncs.com/opshub/nvcr-io-nvidia-pytorch
+pytorch/pytorch: registry.cn-beijing.aliyuncs.com/opshub/pytorch-pytorch

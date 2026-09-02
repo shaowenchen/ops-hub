@@ -1,0 +1,3 @@
+jaegertracing/jaeger-query: registry.cn-beijing.aliyuncs.com/opshub/jaegertracing-jaeger-query
+jaegertracing/jaeger-agent: registry.cn-beijing.aliyuncs.com/opshub/jaegertracing-jaeger-agent
+ghcr.io/jaegertracing/spark-dependencies/spark-dependencies: registry.cn-beijing.aliyuncs.com/opshub/ghcr-io-jaegertracing-spark-dependencies-spark-dependencies
