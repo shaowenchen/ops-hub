@@ -5,3 +5,10 @@ shaowenchen/runtime-node: registry.cn-beijing.aliyuncs.com/opshub/shaowenchen-ru
 shaowenchen/runtime-openjdk: registry.cn-beijing.aliyuncs.com/opshub/shaowenchen-runtime-openjdk
 shaowenchen/runtime-openresty: registry.cn-beijing.aliyuncs.com/opshub/shaowenchen-runtime-openresty
 shaowenchen/runtime-pypy: registry.cn-beijing.aliyuncs.com/opshub/shaowenchen-runtime-pypy
+busybox: registry.cn-beijing.aliyuncs.com/opshub/busybox
+debian: registry.cn-beijing.aliyuncs.com/opshub/debian
+ubuntu: registry.cn-beijing.aliyuncs.com/opshub/ubuntu
+golang: registry.cn-beijing.aliyuncs.com/opshub/golang
+ghcr.io/containerd/nerdctl: registry.cn-beijing.aliyuncs.com/opshub/ghcr-io-containerd-nerdctl
+registry: registry.cn-beijing.aliyuncs.com/opshub/registry
+tonistiigi/binfmt: registry.cn-beijing.aliyuncs.com/opshub/tonistiigi-binfmt
