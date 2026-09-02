@@ -12,8 +12,20 @@ for image in ${ALL_IMAGES}; do
 
     echo "Processing image: ${imagearr[0]} to ${imagearr[1]}"
 
-    src_tags=$(skopeo list-tags docker://${imagearr[0]} | jq '.Tags[]' | sed '1!G;h;$!d')
-    if ! dest_raw=$(skopeo list-tags docker://${imagearr[1]} 2>/dev/null); then
+    src="${imagearr[0]}"
+    dest="${imagearr[1]}"
+    # If the destination already carries a tag (e.g. opshub/tag:name),
+    # keep that tag and append the source tag with a hyphen afterwards.
+    if [[ "$dest" == *:* ]]; then
+        dest_repo="${dest%:*}"
+        dest_prefix="${dest##*:}-"
+    else
+        dest_repo="$dest"
+        dest_prefix=""
+    fi
+
+    src_tags=$(skopeo list-tags docker://${src} | jq '.Tags[]' | sed '1!G;h;$!d')
+    if ! dest_raw=$(skopeo list-tags docker://${dest_repo} 2>/dev/null); then
         log "Warning: Failed to fetch tags from destination ${imagearr[1]}, assuming no tags exist."
         dest_tags=""
     else
@@ -54,14 +66,14 @@ for image in ${ALL_IMAGES}; do
         done
 
         # Check if tag exists in destination using cached data only
-        if [[ ${dest_tags_set["$tag"]} -eq 1 ]]; then
+        if [[ ${dest_tags_set["${dest_prefix}${tag}"]} -eq 1 ]]; then
             # echo "Skipping copy ${imagearr[0]}:${tag} as it already exists in ${imagearr[1]}"
             continue
         fi
 
-        log "Copying ${imagearr[0]}:${tag} to ${imagearr[1]}:${tag}"
+        log "Copying ${imagearr[0]}:${tag} to ${dest_repo}:${dest_prefix}${tag}"
         output=$(docker run --rm -v ~/.docker/config.json:/auth.json quay.io/skopeo/stable:v1.13.0 copy \
-            --multi-arch all docker://${imagearr[0]}:${tag} docker://${imagearr[1]}:${tag} \
+            --multi-arch all docker://${src}:${tag} docker://${dest_repo}:${dest_prefix}${tag} \
             --dest-authfile /auth.json \
             --insecure-policy \
             --src-tls-verify=false \
@@ -71,17 +83,17 @@ for image in ${ALL_IMAGES}; do
         status=$?
 
         if [[ $output == *"toomanyrequests"* ]]; then
-            log "Failed to copy ${imagearr[0]}:${tag} to ${imagearr[1]}:${tag}"
+            log "Failed to copy ${imagearr[0]}:${tag} to ${dest_repo}:${dest_prefix}${tag}"
             echo "Printing output start >>>>"
             echo "$output"
             echo "Printing output end   <<<<"
             break 2
         elif [ $status -ne 0 ]; then
-            log "Failed to copy ${imagearr[0]}:${tag} to ${imagearr[1]}:${tag}"
+            log "Failed to copy ${imagearr[0]}:${tag} to ${dest_repo}:${dest_prefix}${tag}"
             echo "$output"
             break 1
         else
-            log "Successfully copied ${imagearr[0]}:${tag} to ${imagearr[1]}:${tag}"
+            log "Successfully copied ${imagearr[0]}:${tag} to ${dest_repo}:${dest_prefix}${tag}"
             ((tag_count++))
         fi
     done
