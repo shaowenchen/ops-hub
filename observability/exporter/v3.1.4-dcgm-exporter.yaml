@@ -1,3 +1,170 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  labels:
+    app.kubernetes.io/name: dcgm-exporter
+    app.kubernetes.io/version: 3.1.4
+  name: dcgm-exporter-metrics
+  namespace: monitoring
+data:
+  dcp-metrics-included.csv: |
+    # Format
+    # If line starts with a # it is considered a comment
+    # DCGM FIELD, Prometheus metric type, help message
+
+    # Clocks
+    DCGM_FI_DEV_SM_CLOCK, gauge, SM clock frequency (in MHz).
+    DCGM_FI_DEV_MEM_CLOCK, gauge, Memory clock frequency (in MHz).
+    DCGM_FI_DEV_VIDEO_CLOCK, gauge, Video encoder and decoder clock frequency (in MHz).
+    DCGM_FI_DEV_APP_SM_CLOCK, gauge, SM application clock frequency (in MHz).
+    DCGM_FI_DEV_APP_MEM_CLOCK, gauge, Memory application clock frequency (in MHz).
+    DCGM_FI_DEV_MAX_SM_CLOCK, gauge, Maximum supported SM clock frequency (in MHz).
+    DCGM_FI_DEV_MAX_MEM_CLOCK, gauge, Maximum supported memory clock frequency (in MHz).
+    DCGM_FI_DEV_MAX_VIDEO_CLOCK, gauge, Maximum supported video clock frequency (in MHz).
+    DCGM_FI_DEV_CLOCK_THROTTLE_REASONS, gauge, Current clock throttle reasons bitmask (DCGM_CLOCKS_THROTTLE_REASON_*).
+    DCGM_FI_DEV_PSTATE, gauge, Performance state (P-State) 0-15 where 0 is the highest.
+    DCGM_FI_DEV_FAN_SPEED, gauge, Fan speed for the device (in percent).
+
+    # Temperature
+    DCGM_FI_DEV_GPU_TEMP, gauge, GPU temperature (in C).
+    DCGM_FI_DEV_MEMORY_TEMP, gauge, Memory temperature (in C).
+    DCGM_FI_DEV_GPU_MAX_OP_TEMP, gauge, Maximum operating temperature for this GPU (in C).
+    DCGM_FI_DEV_MEM_MAX_OP_TEMP, gauge, Maximum operating temperature for the memory of this GPU (in C).
+    DCGM_FI_DEV_SLOWDOWN_TEMP, gauge, Temperature at which the GPU starts to throttle (in C).
+    DCGM_FI_DEV_SHUTDOWN_TEMP, gauge, Temperature at which the GPU shuts down (in C).
+
+    # Power
+    DCGM_FI_DEV_POWER_USAGE, gauge, Power draw (in W).
+    DCGM_FI_DEV_TOTAL_ENERGY_CONSUMPTION, counter, Total energy consumption since driver load (in mJ).
+    DCGM_FI_DEV_POWER_MGMT_LIMIT, gauge, Current power limit for the device (in W).
+    DCGM_FI_DEV_POWER_MGMT_LIMIT_MIN, gauge, Minimum power management limit (in W).
+    DCGM_FI_DEV_POWER_MGMT_LIMIT_MAX, gauge, Maximum power management limit (in W).
+    DCGM_FI_DEV_POWER_MGMT_LIMIT_DEF, gauge, Default power management limit (in W).
+    DCGM_FI_DEV_ENFORCED_POWER_LIMIT, gauge, Effective power limit enforced after all limiters (in W).
+
+    # PCIe
+    DCGM_FI_DEV_PCIE_TX_THROUGHPUT, counter, Total bytes transmitted through PCIe TX (in KB) via NVML.
+    DCGM_FI_DEV_PCIE_RX_THROUGHPUT, counter, Total bytes received through PCIe RX (in KB) via NVML.
+    DCGM_FI_DEV_PCIE_REPLAY_COUNTER, counter, Total number of PCIe retries.
+    DCGM_FI_DEV_PCIE_LINK_GEN, gauge, Current PCIe link generation.
+    DCGM_FI_DEV_PCIE_MAX_LINK_GEN, gauge, Maximum PCIe link generation.
+    DCGM_FI_DEV_PCIE_LINK_WIDTH, gauge, Current PCIe link width.
+    DCGM_FI_DEV_PCIE_MAX_LINK_WIDTH, gauge, Maximum PCIe link width.
+
+    # Utilization
+    DCGM_FI_DEV_GPU_UTIL, gauge, GPU utilization (in percent).
+    DCGM_FI_DEV_MEM_COPY_UTIL, gauge, Memory utilization (in percent).
+    DCGM_FI_DEV_ENC_UTIL, gauge, Encoder utilization (in percent).
+    DCGM_FI_DEV_DEC_UTIL, gauge, Decoder utilization (in percent).
+
+    # Errors and throttling violations
+    DCGM_FI_DEV_XID_ERRORS, gauge, Value of the last XID error encountered.
+    DCGM_FI_DEV_POWER_VIOLATION, counter, Throttling duration due to power constraints (in ns).
+    DCGM_FI_DEV_THERMAL_VIOLATION, counter, Throttling duration due to thermal constraints (in ns).
+    DCGM_FI_DEV_SYNC_BOOST_VIOLATION, counter, Throttling duration due to sync-boost constraints (in ns).
+    DCGM_FI_DEV_BOARD_LIMIT_VIOLATION, counter, Throttling duration due to board limit constraints (in ns).
+    DCGM_FI_DEV_LOW_UTIL_VIOLATION, counter, Throttling duration due to low utilization (in ns).
+    DCGM_FI_DEV_RELIABILITY_VIOLATION, counter, Throttling duration due to reliability constraints (in ns).
+    DCGM_FI_DEV_TOTAL_APP_CLOCKS_VIOLATION, counter, Total throttling duration due to application clock constraints (in ns).
+    DCGM_FI_DEV_TOTAL_BASE_CLOCKS_VIOLATION, counter, Total throttling duration due to base clock constraints (in ns).
+
+    # Framebuffer memory
+    DCGM_FI_DEV_FB_TOTAL, gauge, Framebuffer memory total (in MiB).
+    DCGM_FI_DEV_FB_FREE, gauge, Framebuffer memory free (in MiB).
+    DCGM_FI_DEV_FB_USED, gauge, Framebuffer memory used (in MiB).
+    DCGM_FI_DEV_FB_RESERVED, gauge, Framebuffer memory reserved (in MiB).
+    DCGM_FI_DEV_FB_USED_PERCENT, gauge, Framebuffer memory used (in percent).
+
+    # ECC errors
+    DCGM_FI_DEV_ECC_CURRENT, gauge, Current ECC mode.
+    DCGM_FI_DEV_ECC_PENDING, gauge, Pending ECC mode.
+    DCGM_FI_DEV_ECC_SBE_VOL_TOTAL, counter, Total single-bit volatile ECC errors.
+    DCGM_FI_DEV_ECC_DBE_VOL_TOTAL, counter, Total double-bit volatile ECC errors.
+    DCGM_FI_DEV_ECC_SBE_AGG_TOTAL, counter, Total single-bit aggregate ECC errors.
+    DCGM_FI_DEV_ECC_DBE_AGG_TOTAL, counter, Total double-bit aggregate ECC errors.
+    DCGM_FI_DEV_ECC_SBE_VOL_L1, counter, L1 single-bit volatile ECC errors.
+    DCGM_FI_DEV_ECC_DBE_VOL_L1, counter, L1 double-bit volatile ECC errors.
+    DCGM_FI_DEV_ECC_SBE_VOL_L2, counter, L2 single-bit volatile ECC errors.
+    DCGM_FI_DEV_ECC_DBE_VOL_L2, counter, L2 double-bit volatile ECC errors.
+    DCGM_FI_DEV_ECC_SBE_VOL_DEV, counter, Device memory single-bit volatile ECC errors.
+    DCGM_FI_DEV_ECC_DBE_VOL_DEV, counter, Device memory double-bit volatile ECC errors.
+    DCGM_FI_DEV_ECC_SBE_VOL_REG, counter, Register file single-bit volatile ECC errors.
+    DCGM_FI_DEV_ECC_DBE_VOL_REG, counter, Register file double-bit volatile ECC errors.
+    DCGM_FI_DEV_ECC_SBE_VOL_TEX, counter, Texture memory single-bit volatile ECC errors.
+    DCGM_FI_DEV_ECC_DBE_VOL_TEX, counter, Texture memory double-bit volatile ECC errors.
+    DCGM_FI_DEV_ECC_SBE_AGG_L1, counter, L1 single-bit aggregate ECC errors.
+    DCGM_FI_DEV_ECC_DBE_AGG_L1, counter, L1 double-bit aggregate ECC errors.
+    DCGM_FI_DEV_ECC_SBE_AGG_L2, counter, L2 single-bit aggregate ECC errors.
+    DCGM_FI_DEV_ECC_DBE_AGG_L2, counter, L2 double-bit aggregate ECC errors.
+    DCGM_FI_DEV_ECC_SBE_AGG_DEV, counter, Device memory single-bit aggregate ECC errors.
+    DCGM_FI_DEV_ECC_DBE_AGG_DEV, counter, Device memory double-bit aggregate ECC errors.
+    DCGM_FI_DEV_ECC_SBE_AGG_REG, counter, Register file single-bit aggregate ECC errors.
+    DCGM_FI_DEV_ECC_DBE_AGG_REG, counter, Register file double-bit aggregate ECC errors.
+    DCGM_FI_DEV_ECC_SBE_AGG_TEX, counter, Texture memory single-bit aggregate ECC errors.
+    DCGM_FI_DEV_ECC_DBE_AGG_TEX, counter, Texture memory double-bit aggregate ECC errors.
+
+    # Retired pages and row remapping
+    DCGM_FI_DEV_RETIRED_SBE, counter, Total number of pages retired due to single-bit errors.
+    DCGM_FI_DEV_RETIRED_DBE, counter, Total number of pages retired due to double-bit errors.
+    DCGM_FI_DEV_RETIRED_PENDING, counter, Total number of pages pending retirement.
+    DCGM_FI_DEV_UNCORRECTABLE_REMAPPED_ROWS, counter, Number of remapped rows for uncorrectable errors.
+    DCGM_FI_DEV_CORRECTABLE_REMAPPED_ROWS, counter, Number of remapped rows for correctable errors.
+    DCGM_FI_DEV_ROW_REMAP_FAILURE, gauge, Whether remapping of rows has failed.
+    DCGM_FI_DEV_ROW_REMAP_PENDING, gauge, Whether row remapping is pending.
+
+    # NVLink
+    DCGM_FI_DEV_NVLINK_CRC_FLIT_ERROR_COUNT_TOTAL, counter, Total NVLink flow-control CRC errors for all links.
+    DCGM_FI_DEV_NVLINK_CRC_DATA_ERROR_COUNT_TOTAL, counter, Total NVLink data CRC errors for all links.
+    DCGM_FI_DEV_NVLINK_REPLAY_ERROR_COUNT_TOTAL, counter, Total NVLink retries for all links.
+    DCGM_FI_DEV_NVLINK_RECOVERY_ERROR_COUNT_TOTAL, counter, Total NVLink recovery errors for all links.
+    DCGM_FI_DEV_NVLINK_BANDWIDTH_TOTAL, counter, Total NVLink bandwidth counters for all lanes.
+
+    # Device configuration and topology
+    DCGM_FI_DEV_VIRTUAL_MODE, gauge, GPU virtualization mode.
+    DCGM_FI_DEV_MIG_MODE, gauge, MIG mode enabled (1) or disabled (0).
+    DCGM_FI_DEV_MIG_MAX_SLICES, gauge, Maximum number of MIG slices supported by this GPU.
+    DCGM_FI_DEV_CUDA_COMPUTE_CAPABILITY, gauge, CUDA compute capability major in the upper 32 bits and minor in the lower 32 bits.
+    DCGM_FI_DEV_COMPUTE_MODE, gauge, Compute mode for the device.
+    DCGM_FI_DEV_PERSISTENCE_MODE, gauge, Persistence mode enabled (1) or disabled (0).
+    DCGM_FI_DEV_NVML_INDEX, gauge, NVML index of this GPU.
+    DCGM_FI_DEV_INFOROM_CONFIG_VALID, gauge, InfoROM configuration checksum is valid.
+    DCGM_FI_DEV_BAR1_TOTAL, gauge, Total BAR1 of the GPU (in MiB).
+    DCGM_FI_DEV_BAR1_USED, gauge, Used BAR1 of the GPU (in MiB).
+    DCGM_FI_DEV_BAR1_FREE, gauge, Free BAR1 of the GPU (in MiB).
+
+    # Media engine utilization
+    DCGM_FI_PROF_NVDEC0_ACTIVE, gauge, Ratio of cycles the NVDEC engine 0 is active (in percent).
+    DCGM_FI_PROF_NVDEC1_ACTIVE, gauge, Ratio of cycles the NVDEC engine 1 is active (in percent).
+    DCGM_FI_PROF_NVDEC2_ACTIVE, gauge, Ratio of cycles the NVDEC engine 2 is active (in percent).
+    DCGM_FI_PROF_NVDEC3_ACTIVE, gauge, Ratio of cycles the NVDEC engine 3 is active (in percent).
+    DCGM_FI_PROF_NVDEC4_ACTIVE, gauge, Ratio of cycles the NVDEC engine 4 is active (in percent).
+    DCGM_FI_PROF_NVDEC5_ACTIVE, gauge, Ratio of cycles the NVDEC engine 5 is active (in percent).
+    DCGM_FI_PROF_NVDEC6_ACTIVE, gauge, Ratio of cycles the NVDEC engine 6 is active (in percent).
+    DCGM_FI_PROF_NVDEC7_ACTIVE, gauge, Ratio of cycles the NVDEC engine 7 is active (in percent).
+
+    # DCP profiling metrics - require SYS_ADMIN capability
+    DCGM_FI_PROF_GR_ENGINE_ACTIVE, gauge, Ratio of time the graphics engine is active (in percent).
+    DCGM_FI_PROF_SM_ACTIVE, gauge, Ratio of cycles an SM has at least 1 warp assigned (in percent).
+    DCGM_FI_PROF_SM_OCCUPANCY, gauge, Ratio of resident warps to the theoretical maximum (in percent).
+    DCGM_FI_PROF_PIPE_TENSOR_ACTIVE, gauge, Ratio of cycles any tensor pipe is active (in percent).
+    DCGM_FI_PROF_PIPE_TENSOR_IMMA_ACTIVE, gauge, Ratio of cycles the tensor IMMA pipe is active (in percent).
+    DCGM_FI_PROF_PIPE_TENSOR_HMMA_ACTIVE, gauge, Ratio of cycles the tensor HMMA pipe is active (in percent).
+    DCGM_FI_PROF_PIPE_TENSOR_DFMA_ACTIVE, gauge, Ratio of cycles the tensor DFMA pipe is active (in percent).
+    DCGM_FI_PROF_DRAM_ACTIVE, gauge, Ratio of cycles the device memory interface is active (in percent).
+    DCGM_FI_PROF_PIPE_FP64_ACTIVE, gauge, Ratio of cycles the fp64 pipe is active (in percent).
+    DCGM_FI_PROF_PIPE_FP32_ACTIVE, gauge, Ratio of cycles the fp32 pipe is active (in percent).
+    DCGM_FI_PROF_PIPE_FP16_ACTIVE, gauge, Ratio of cycles the fp16 pipe is active (in percent).
+    DCGM_FI_PROF_PIPE_INT_ACTIVE, gauge, Ratio of cycles the integer pipe is active (in percent).
+    DCGM_FI_PROF_NVOFA0_ACTIVE, gauge, Ratio of cycles the NVOFA engine is active (in percent).
+    DCGM_FI_PROF_PCIE_TX_BYTES, gauge, Rate of data transmitted over the PCIe bus (in bytes per second).
+    DCGM_FI_PROF_PCIE_RX_BYTES, gauge, Rate of data received over the PCIe bus (in bytes per second).
+    DCGM_FI_PROF_NVLINK_TX_BYTES, gauge, Rate of data transmitted over NVLink (in bytes per second).
+    DCGM_FI_PROF_NVLINK_RX_BYTES, gauge, Rate of data received over NVLink (in bytes per second).
+
+    # Node and static information
+    DCGM_FI_DEV_COUNT, gauge, Number of devices on the node.
+    DCGM_FI_DRIVER_VERSION, label, Driver version.
+---
 apiVersion: apps/v1
 kind: DaemonSet
 metadata:
@@ -39,7 +206,7 @@ spec:
             - name: DCGM_EXPORTER_KUBERNETES
               value: "true"
             - name: DCGM_EXPORTER_COLLECTORS
-              value: /etc/dcgm-exporter/dcp-metrics-included.csv
+              value: /etc/dcgm-exporter/custom/dcp-metrics-included.csv
           image: nvcr.io/nvidia/k8s/dcgm-exporter:3.1.7-3.1.4-ubuntu20.04
           imagePullPolicy: IfNotPresent
           name: dcgm-exporter
@@ -61,6 +228,9 @@ spec:
             - mountPath: /data/kubelet/pod-resources
               name: pod-gpu-resources
               readOnly: true
+            - mountPath: /etc/dcgm-exporter/custom
+              name: dcgm-exporter-metrics
+              readOnly: true
       dnsPolicy: ClusterFirst
       hostNetwork: true
       restartPolicy: Always
@@ -72,3 +242,6 @@ spec:
             path: /data/kubelet/pod-resources
             type: ""
           name: pod-gpu-resources
+        - configMap:
+            name: dcgm-exporter-metrics
+          name: dcgm-exporter-metrics
